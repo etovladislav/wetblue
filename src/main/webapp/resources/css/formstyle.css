@@ -1,0 +1,1120 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic&amp;subset=latin,cyrillic);
+@font-face {
+    font-family: 'Myriadpro';
+    src: url('./fonts/MyriadPro-Bold.eot');
+    src: url('./fonts/MyriadPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/MyriadPro-Bold.woff') format('woff'),
+        url('./fonts/MyriadPro-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MyriadPro-Regular';
+    src: url('./fonts/MyriadPro-Regular.eot');
+    src: url('./fonts/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/MyriadProRegular.woff2') format('woff2'),
+        url('./fonts/MyriadPro-Regular.woff') format('woff'),
+        url('./fonts/MyriadPro-Regular.ttf') format('truetype'),
+        url('./fonts/MyriadPro-Regular.svg#MyriadPro-Regular') format('svg');
+}
+.form_2calls_blur{
+    -webkit-filter: blur(3px);
+    -ms-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    filter: blur(3px);
+    filter: url("data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter id='blur'&gt;&lt;feGaussianBlur stdDeviation='3'/&gt;&lt;/filter&gt;&lt;/svg&gt;#blur");
+}
+
+/* .clearfix */
+.form_2calls_clear:before,
+.form_2calls_clear:after {
+  display: table;
+  content: " ";
+}
+.form_2calls_clear:after{
+  clear: both;
+}
+.form_2calls_manager_img_animate{
+display: none !important;
+}
+/* Затемнение фона под виджетом */
+.form_2calls_wrapper{
+	font-stretch: semi-condensed;
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: url('../images/flat_2calls_wrapper.png');
+    font-family: "Open Sans", sans-serif !important;
+    font-weight: 300;
+    z-index: 200000;
+    padding: 0; margin: 0;
+    text-align: left !important;
+}
+
+/* Слой с виджетом и элементами за его пределами */
+.form_2calls_layout{
+    padding: 0; margin: 0;
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 790px; height: 375px;
+    margin: -187.5px 0 0 -395px;
+    box-sizing: border-box;
+    z-index: 200001;
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	transform: scale(0.7);
+	opacity: 0;
+	
+	-webkit-transition: all 0.15s;
+	-moz-transition: all 0.15s;
+	transition: all 0.15s;
+}
+.modal-1 .form_2calls_layout{
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+	-webkit-transition: all 0.15s;
+	-moz-transition: all 0.15s;
+	transition: all 0.15s;
+}
+.modal_close .form_2calls_layout{
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	transform: scale(0.7);
+	opacity: 0
+	-webkit-transition: all 0.15s;
+	-moz-transition: all 0.15s;
+	transition: all 0.15s;
+}
+    .form_2calls_call_left{ height: 121px; left: -11px; margin: 0; padding: 0; position: absolute; top: 154px; width: 73px;}
+	.form_2calls_call_left .img_left_01{ position:absolute; right: 0px; top: 37px; opacity:0.1; -webkit-animation: sonarEffect 4s ease-out 2.5s infinite; -moz-animation: sonarEffect 4s ease-out 2.5 infinite; animation: sonarEffect 4s ease-out 2.5s infinite;}
+	.form_2calls_call_left .img_left_02{ position:absolute; right: 14px; top: 23px; opacity:0.1; -webkit-animation: sonarEffect 4s ease-out 2.7s infinite; -moz-animation: sonarEffect 4s ease-out 2.7s infinite; animation: sonarEffect 4s ease-out 2.7s infinite;}
+	.form_2calls_call_left .img_left_03{ position:absolute; right: 28px; top: 8px; opacity:0.1; -webkit-animation: sonarEffect 4s ease-out 2.9s infinite; -moz-animation: sonarEffect 4s ease-out 2.9s infinite; animation: sonarEffect 4s ease-out 2.9s infinite;}
+@-webkit-keyframes sonarEffect { 
+	0%  { opacity:0.1;}
+	5%  { opacity:0.25;}
+	10%  { opacity:0.5;}
+	15%  { opacity:0.1;}
+	20%  { opacity:0.1;}
+	25%  { opacity:0.1;}
+	30%  { opacity:0.1;}
+	35%  { opacity:0.1;}
+	40%  { opacity:0.1;}
+	45%  { opacity:0.1;}
+	50%  { opacity:0.1;}
+	55%  { opacity:0.1;}
+	60%  { opacity:0.1;}
+	65%  { opacity:0.1;}
+	70%  { opacity:0.1;}
+	75%  { opacity:0.1;}
+	80%  { opacity:0.1;}
+	85%  { opacity:0.1;}
+	90%  { opacity:0.1;}
+	95%  { opacity:0.1;}
+	100%  { opacity:0.1;}
+}
+@-moz-keyframes sonarEffect {
+	0%  { opacity:0.1;}
+	5%  { opacity:0.25;}
+	10%  { opacity:0.5;}
+	15%  { opacity:0.1;}
+	20%  { opacity:0.1;}
+	25%  { opacity:0.1;}
+	30%  { opacity:0.1;}
+	35%  { opacity:0.1;}
+	40%  { opacity:0.1;}
+	45%  { opacity:0.1;}
+	50%  { opacity:0.1;}
+	55%  { opacity:0.1;}
+	60%  { opacity:0.1;}
+	65%  { opacity:0.1;}
+	70%  { opacity:0.1;}
+	75%  { opacity:0.1;}
+	80%  { opacity:0.1;}
+	85%  { opacity:0.1;}
+	90%  { opacity:0.1;}
+	95%  { opacity:0.1;}
+	100%  { opacity:0.1;}
+}
+
+@-ms-keyframes sonarEffect {
+	0%  { opacity:0.1;}
+	5%  { opacity:0.25;}
+	10%  { opacity:0.5;}
+	15%  { opacity:0.1;}
+	20%  { opacity:0.1;}
+	25%  { opacity:0.1;}
+	30%  { opacity:0.1;}
+	35%  { opacity:0.1;}
+	40%  { opacity:0.1;}
+	45%  { opacity:0.1;}
+	50%  { opacity:0.1;}
+	55%  { opacity:0.1;}
+	60%  { opacity:0.1;}
+	65%  { opacity:0.1;}
+	70%  { opacity:0.1;}
+	75%  { opacity:0.1;}
+	80%  { opacity:0.1;}
+	85%  { opacity:0.1;}
+	90%  { opacity:0.1;}
+	95%  { opacity:0.1;}
+	100%  { opacity:0.1;}
+}
+
+@-o-keyframes sonarEffect {
+	0%  { opacity:0.1;}
+	5%  { opacity:0.25;}
+	10%  { opacity:0.5;}
+	15%  { opacity:0.1;}
+	20%  { opacity:0.1;}
+	25%  { opacity:0.1;}
+	30%  { opacity:0.1;}
+	35%  { opacity:0.1;}
+	40%  { opacity:0.1;}
+	45%  { opacity:0.1;}
+	50%  { opacity:0.1;}
+	55%  { opacity:0.1;}
+	60%  { opacity:0.1;}
+	65%  { opacity:0.1;}
+	70%  { opacity:0.1;}
+	75%  { opacity:0.1;}
+	80%  { opacity:0.1;}
+	85%  { opacity:0.1;}
+	90%  { opacity:0.1;}
+	95%  { opacity:0.1;}
+	100%  { opacity:0.1;}
+}
+
+@keyframes sonarEffect {
+	0%  { opacity:0.1;}
+	5%  { opacity:0.25;}
+	10%  { opacity:0.5;}
+	15%  { opacity:0.1;}
+	20%  { opacity:0.1;}
+	25%  { opacity:0.1;}
+	30%  { opacity:0.1;}
+	35%  { opacity:0.1;}
+	40%  { opacity:0.1;}
+	45%  { opacity:0.1;}
+	50%  { opacity:0.1;}
+	55%  { opacity:0.1;}
+	60%  { opacity:0.1;}
+	65%  { opacity:0.1;}
+	70%  { opacity:0.1;}
+	75%  { opacity:0.1;}
+	80%  { opacity:0.1;}
+	85%  { opacity:0.1;}
+	90%  { opacity:0.1;}
+	95%  { opacity:0.1;}
+	100%  { opacity:0.1;}
+}
+	
+	
+        .form_2calls_call_left02{ background: url('../images/flat_2calls_call_left02.png') no-repeat left top; }
+        .form_2calls_call_left03{ background: url('../images/flat_2calls_call_left03.png') no-repeat left top; }
+        
+    .form_2calls_call_right{ height: 121px; margin: 0;padding: 0; position: absolute; right: -11px; top: 154px; width: 73px; }
+	.form_2calls_call_right .img_right_01{ position:absolute; left: 0px; top: 37px; opacity:0.1; -webkit-animation: sonarEffect 4s ease-out 2.5s infinite; -moz-animation: sonarEffect 4s ease-out 2.5 infinite; animation: sonarEffect 4s ease-out 2.5s infinite;}
+	.form_2calls_call_right .img_right_02{ position:absolute; left: 14px; top: 23px;opacity:0.1; -webkit-animation: sonarEffect 4s ease-out 2.7s infinite; -moz-animation: sonarEffect 4s ease-out 2.7s infinite; animation: sonarEffect 4s ease-out 2.7s infinite;}
+	.form_2calls_call_right .img_right_03{ position:absolute; left: 28px; top: 8px; opacity:0.1; -webkit-animation: sonarEffect 4s ease-out 2.9s infinite; -moz-animation: sonarEffect 4s ease-out 2.9s infinite; animation: sonarEffect 4s ease-out 2.9s infinite;}
+        .form_2calls_call_left02{ background: url('../images/flat_2calls_call_left02.png') no-repeat left top; }
+        .form_2calls_call_left03{ background: url('../images/flat_2calls_call_left03.png') no-repeat left top; }
+        
+        .form_2calls_call_right02{ background: url('../images/flat_2calls_call_right02.png') no-repeat left top; }
+        .form_2calls_call_right03{ background: url('../images/flat_2calls_call_right03.png') no-repeat left top; }
+
+/* Если виджет без менеджера. Класс добавляется к &lt;body&gt; */
+.form_2calls_manager_hidden .form_2calls_manager_img{
+    display: none;
+}
+.form_2calls_manager_hidden .form_2calls_manager_text{
+    display: none;
+}
+.form_2calls_manager_hidden .form_2calls_panel1 .form_2calls_block{ padding-bottom:87px; }
+.form_2calls_manager_hidden .form_2calls_call_left, .form_2calls_manager_hidden .form_2calls_call_right, .form_2calls_manager_hidden .manager{ display:none;}
+.form_2calls_manager_hidden .form_2calls_timer{
+    left: 38px;
+    bottom: 10px;
+}
+.form_2calls_manager_hidden .form_2calls_copy{
+    bottom: 8px;
+}
+.form_2calls_manager_hidden .form_2calls_call_right{
+    top: 141px;
+}
+.form_2calls_manager_hidden .form_2calls_call_left{
+    top: 141px;
+}
+
+/* #2 */
+.form_2calls_manager_hidden .form_2calls_widget2 .form_2calls_timer{
+    left: 364px; top: 120px;
+}
+.form_2calls_manager_hidden .form_2calls_widget2 .form_2calls_block,
+.form_2calls_manager_hidden .form_2calls_widget3 .form_2calls_block{
+    /*height: 350px;*/
+}
+.form_2calls_manager_hidden .form_2calls_widget2 .form_2calls_copy,
+.form_2calls_manager_hidden .form_2calls_widget3 .form_2calls_copy{
+    /*top: 345px;*/r
+}
+.form_2calls_manager_hidden .form_2calls_widget2 .form_2calls_share{
+    top: 134px;
+}
+.form_2calls_manager_hidden .form_2calls_widget2 .form_2calls_arrow{
+    top: 142px;
+}
+
+/* #3 */
+.form_2calls_manager_hidden .form_2calls_widget3 .form_2calls_call_right,
+.form_2calls_manager_hidden .form_2calls_widget3 .form_2calls_call_left{
+    top: 161px;
+}
+/* Switch offices select */
+
+.form_2calls_office .form_2calls_block{
+    height: 390px;
+}
+    .form_2calls_office .form_2calls_manager_img,
+    .form_2calls_office .form_2calls_timer,
+    .form_2calls_office .form_2calls_manager_text{
+        top: 283px;
+    }
+    .form_2calls_office .form_2calls_copy{
+        top: 385px;
+    }
+    .form_2calls_office .form_2calls_manager_hidden .form_2calls_copy{
+        top: 305px;
+    }
+.form_2calls_office .form_2calls_manager_hidden .form_2calls_block{
+    height: 310px;
+}
+.form_2calls_office .form_2calls_manager_hidden .form_2calls_timer{
+    top: 220px; left: 325px;
+}
+.form_2calls_switch_office{
+    height: 30px; 
+    min-width: 210px;
+    max-width: 465px;
+    position: absolute;
+    left: 55px; top: 240px;
+    font-size: 15px;
+    display: none;
+}
+    .form_2calls_switch_select_wrapper{
+        float: left;
+        width: 210px;
+        height: 30px;
+        border: none;
+        box-sizing: border-box;
+        border: 1px #acacac solid;
+        background: #fff;
+        border-radius: 3px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+    .form_2calls_switch_select-button{
+        display: block;
+        height: 28px;
+        width: 20px;
+        background: #fff url("../images/flat_2calls_selector.png") no-repeat right 10px center;
+        position: absolute;	
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 50;
+    }
+    .form_2calls_switch_office_input{
+        border: none;
+        font-family: "Open Sans", sans-serif !important;
+        font-size: 15px;
+        width: 220px;
+        padding: 0 10px;
+        margin: 0;
+        height: 28px;
+        position: relative;
+        background: none;
+        z-index: 100;
+        cursor: pointer;
+    }
+        .form_2calls_switch_office_input:focus{
+            outline: none;
+        }
+    .form_2calls_switch_office_label{
+        width: 87px;
+        float: left;
+        line-height: 30px;
+    }
+
+.form_2calls_office .form_2calls_switch_office{
+    display: block;
+}
+
+/* Блок виджета */
+.form_2calls_block{
+    padding: 0; margin: 0;
+    width: 643px; height: 320px !important; float:left;
+    background: url('../images/flat_2calls_block.png');
+    position: relative; left: 73px; top: 24px;
+    border-radius: 5px;
+    z-index: 200002;
+	padding: 0 0 28px;
+    box-shadow: 0px 0px 9px #4f4f4f !important;
+}
+.widget_03 .form_2calls_block { padding: 0 0 57px; }
+.widget_04 .form_2calls_block { padding: 0 0 79px; }
+.form_2calls_widget4 .form_2calls_block { padding: 0 0 66px; }
+.form_2calls_widget4.manager_hidden .form_2calls_block { padding: 0 0 158px;}
+    .form_2calls_heading{
+        color: #000;
+		font-size: 42px;
+		line-height: 50px;
+		margin: 21px 0 0 54px;
+		padding-right: 45px;
+		position: relative;
+        font-family: "Open Sans", sans-serif !important;
+        font-weight: 400 !important;
+        text-align: center;
+    }
+    
+	
+.widget_03 .form_2calls_heading { margin: 53px 0 0 55px;}
+.widget_04 .form_2calls_heading { margin: 69px 0 0 55px; }
+    .form_2calls_desc{
+        color: #000;
+		font-size: 15px;
+		margin: 10px 0 0 55px;
+		padding-right: 45px;
+		position: relative;
+        font-family: "Open Sans", sans-serif !important;
+        font-weight: 300;
+    }
+    
+    .form_2calls_arrow{
+        position: absolute;
+        top: 147px; left: 17px;
+        width: 33px; height: 60px;
+        background: url('../images/flat_2calls_arrow.png') no-repeat left top; display:none;
+    }
+
+	#form_2calls_myFormId {
+    display: block;
+    float: left;
+    height: 70px;
+    margin: 0;
+    position: relative;
+    width: 100%;
+}
+.form_2calls_widget3 #form_2calls_myFormId { height: 90px !important; }
+#form_2calls_myFormId:after { left: 14px; position: absolute; top: -10px; content:url(../images/flat_2calls_arrow.png);}
+    .form_2calls_b-input{
+        width:302px;
+        position: absolute;
+        bottom: 0px; left: 56px;
+    }
+	.form_2calls_widget3 .form_2calls_b-input{ bottom: auto; top:18px;}
+    .form_2calls_b-button{
+        width:160px;
+        position: absolute;
+       	bottom: 0px; left: 364px;
+    }
+        .form_2calls_input{
+            width: 300px !important; 
+            height: 52px !important; 
+            margin: 0 !important; 
+            border: 1px #acacac solid;
+            border-radius: 5px !important; 
+            box-sizing: border-box !important;
+            -webkit-box-shadow: inset 0px 2px 5px 1px rgba(57,57,57,0.25) !important;
+            -moz-box-shadow: inset 0px 3px 5px 1px rgba(57,57,57,0.25) !important;
+            box-shadow: inset 0px 3px 5px 1px rgba(57,57,57,0.25) !important;
+            padding: 0 10px !important; font-size: 23px !important;
+            font-weight: 700 !important; color: #000 !important;
+            background: #fff !important;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+			font-family:Arial, Helvetica, sans-serif !important;
+            text-align: left !important;
+        }
+		.form_2calls_input::-webkit-input-placeholder { color:#000; opacity:1;}
+		.form_2calls_input:-moz-placeholder { color:#000; opacity:1;}
+		.form_2calls_input::-moz-placeholder { color:#000; opacity:1;}
+		.form_2calls_input:-ms-input-placeholder { color:#000; opacity:1;}
+        .form_2calls_input:focus{
+            outline: none;
+            border: solid 1px #5287ff;
+        }
+            /* Если номер введен с ошибкой - добавить к .form_2calls_input этот класс */
+            .form_2calls_input_error{
+                outline: none;
+                border: solid 1px #ff0000 !important;
+                -webkit-animation: swing 1s infinite;
+                animation: swing 1s infinite;
+                -webkit-animation-iteration-count: 1;
+                animation-iteration-count: 1;
+            }
+        .form_2calls_button{
+            background: none repeat scroll 0 0 #71c731;
+			border: 3px solid #71c731;
+			border-radius: 5px;
+			color: #2a4b13;
+			cursor: pointer;
+			font-size: 14px;
+			height: 52px;
+			outline: medium none;
+			text-transform: uppercase;
+			width: 158px;
+			font-family: 'MyriadPro-Regular' !important;
+			line-height: 45px;
+			display:block;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+            padding: 0 !important; 
+            margin: 0 !important;
+        }
+        .form_2calls_button:hover{
+            border: 3px #3d7b11 solid;
+            outline:none;
+        }
+        .form_2calls_button:active{
+            border: none;
+            -webkit-box-shadow: inset 0px 2px 5px 1px rgba(57,57,57,0.25);
+            -moz-box-shadow: inset 0px 3px 5px 1px rgba(57,57,57,0.25);
+            box-shadow: inset 0px 3px 5px 1px rgba(57,57,57,0.25);
+            outline:none;
+            line-height: 56px;
+        }
+        .form_2calls_button:focus{
+            outline: none; border: none;
+        }
+        .form_2calls_button::-moz-focus-inner{
+            outline: none; border: none;
+        }
+.manager { border-radius: 3px; position: relative; z-index: 200006; width:79px; height:79px; margin: 19px 0 0 55px; float:left; overflow:hidden;} 
+.widget_04 .manager, .widget_04 .form_2calls_manager_text { display:none;}    
+.widget_03 .manager { margin: 16px 0 0 56px; }
+    .form_2calls_manager_img{
+         width:79px; height:79px; 
+    }
+    
+    .form_2calls_manager_text{
+		float: left;
+		line-height: 15px !important;
+		margin: 22px 0 0 18px;
+		padding: 0 20px 0 0;
+		width: 180px;
+        height: 63px !important;
+    }
+	.widget_03 .form_2calls_manager_text { margin: 19px 250px 15px 17px;}
+        .form_2calls_manager_name{
+            color: #000;
+            font-size: 15px;
+            padding-top: 10px;
+        }
+        .form_2calls_manager_desc{
+            color: #848484;
+			font-size: 12px;
+			line-height: 16px !important;
+			padding-top: 4px;
+        }
+        
+    .form_2calls_timer{
+        background: url("../images/flat_2calls_timer.png") no-repeat scroll 17px top rgba(0, 0, 0, 0);
+		box-sizing: border-box;
+		color: #000;
+		font-size: 23px;
+		height: 79px;
+		left: 364px;
+		line-height: 79px;
+		padding-left: 63px;
+		position: absolute;
+		bottom: 29px;
+		width: 158px;
+		cursor:pointer;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+    }
+	.form_2calls_timer:after{ position:absolute; height:76px; width:155px; left:1px; top:1px; border-radius:3px; border: solid 1px rgba(255,255,255,0.15); content:' ';}
+	.widget_03 .form_2calls_timer { bottom: 152px !important; }
+	.widget_04 .form_2calls_timer { bottom: 164px !important;left: 364px !important; }
+	.form_2calls_timer:hover{ color:#f00; background: url("../images/flat_2calls_timer_hover_flat.png") no-repeat scroll 17px top rgba(0, 0, 0, 0);}
+        /* Когда остается 5 секунд, к блоку с предыдущим классом добавить этот */
+        .form_2calls_timer_action{
+            background: url('../images/flat_2calls_timer.png') no-repeat 17px -79px !important;
+            color: #ff0000 !important;
+            -webkit-animation: blink2 1s linear infinite;
+            animation: blink2 1s linear infinite;
+        }
+        @-webkit-keyframes blink2 {
+          100% { color: rgba(34, 34, 34, 0); }
+        }
+        @keyframes blink2 {
+          100% { color: rgba(34, 34, 34, 0); }
+        }
+    .form_2calls_close{
+        padding: 0; margin: 0;
+        position: absolute;
+        left: 50%; top: 50%;
+        z-index: 200003;
+    }
+        .form_2calls_close a{
+            display: block; padding: 0; margin: 0;
+            color: #fff; text-decoration: none;
+            width: 20px; height: 21px;
+            background: url(../images/western_closer.png) no-repeat left top;
+            margin: -185px 0 0 324px;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+        }
+		.form_2calls_close a:hover{
+            background:url('../images/western_closer_hover.png') no-repeat left top;
+        }
+    
+    .form_2calls_copy{
+        box-sizing: border-box;
+		left: 3px;
+		padding-right: 90px;
+		position: relative;
+		text-align: right;
+		bottom: 11px;
+		width: 100%;
+		z-index: 200003;
+		float:left;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+    }
+	
+.widget_03 .form_2calls_copy, .widget_04 .form_2calls_copy, .form_2calls_widget3 .form_2calls_copy, .form_2calls_widget4 .form_2calls_copy { bottom: 8px; }
+        .form_2calls_copy a, .form_2calls_copy a:visited{
+            font-family: "Open Sans", sans-serif !important;
+            font-size: 11px;
+            color: #A5A5A5;
+            text-decoration: none;-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+        }
+        .form_2calls_copy a:hover, .form_2calls_copy a:active{
+            font-family: "Open Sans", sans-serif !important;
+            font-size: 11px;
+            color: #000;
+            text-decoration: none;
+        }
+
+/* widget#2 */
+.form_2calls_widget2 .form_2calls_heading{
+    top: 54px;
+}
+.form_2calls_widget2 .form_2calls_heading.form_2calls_heading_swing{
+    -webkit-animation: swing 1s infinite;
+    animation: swing 1s infinite;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+.form_2calls_widget2 .form_2calls_manager_img,
+.form_2calls_widget2 .form_2calls_manager_text,
+.form_2calls_widget2 .form_2calls_timer{
+    top: 120px;
+}
+.form_2calls_widget2 .form_2calls_arrow{
+    top: 228px;
+}
+
+.form_2calls_share{ /* Рассказать друзьям */
+    color: #000;
+    float: left;
+    font-size: 15px;
+    margin: 17px 0 0 56px;
+    position: relative;
+}
+.widget_04 .form_2calls_share { margin: 10px 0 0 56px; }
+.form_2calls_share:after{ left: -41px; position: absolute; top: 13px; content:url(../images/flat_2calls_arrow.png);}
+.widget_03 .form_2calls_share:after, .widget_04 .form_2calls_share:after{ left: -40px; position: absolute; top: 12px; content:url(../images/flat_2calls_arrow.png);}
+    .form_2calls_share_twitter{
+        display: block; 
+        width: 22px; height: 21px;
+        float: left; margin: 34px 18px 0 1px;
+        background: url('../images/flat_2calls_share_twitter.png') no-repeat left top;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+    }
+        .form_2calls_share_twitter:hover{
+            background: url('../images/flat_2calls_share_twitter_hover_flat.png') no-repeat left top;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+        }
+    .form_2calls_share_facebook{
+        display: block; 
+        width: 11px; height: 21px;
+        float: left; margin: 34px 19px 0 0;
+        background: url('../images/flat_2calls_share_facebook.png') no-repeat left top;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+    }
+        .form_2calls_share_facebook:hover{
+            background: url('../images/flat_2calls_share_facebook_hover_flat.png') no-repeat left top
+        }
+    .form_2calls_share_vkontakte{
+        display: block; 
+        width: 26px; height: 21px;
+        float: left; margin: 34px 20px 0 0;
+        background: url('../images/flat_2calls_share_vkontakte.png') no-repeat left top;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+    }
+        .form_2calls_share_vkontakte:hover{
+            background: url('../images/flat_2calls_share_vkontakte_hover_flat.png') no-repeat left top;
+			
+        }
+    .form_2calls_share_google{
+        display: block; 
+        width: 20px; height: 21px;
+        float: left; margin: 34px 18px 0 0;
+        background: url('../images/flat_2calls_share_google.png') no-repeat left top;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+    }
+        .form_2calls_share_google:hover{
+            background: url('../images/flat_2calls_share_google_hover_flat.png') no-repeat left top;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+        }
+        
+.form_2calls_not_call{
+    font-size: 12px;
+    width: 202px;
+    position: absolute;
+    left: 383px; bottom: 67px; line-height: 16px; 
+    color: #000;
+    font-weight: 500;
+}
+.widget_04 .form_2calls_not_call { bottom: auto; float: right; left: auto; margin: 87px 58px 0 0; position: relative; }
+    .form_2calls_not_call a, .form_2calls_not_call a:visited{
+        color: #000;
+			-webkit-transition: all 0.15s;
+			-moz-transition: all 0.15s;
+			transition: all 0.15s;
+    }
+        .form_2calls_not_call a:hover, .form_2calls_not_call a:active{
+            color: #ff5252;
+        }
+
+
+/* widget#3 */
+.form_2calls_widget3 .form_2calls_b-button{left: 372px !important;top: 18px !important;}
+.form_2calls_widget3.manager_hidden .form_2calls_b-button{ left: 56px; top: 88px;}
+.form_2calls_widget3 .manager{ margin: 89px 0 0 235px; }
+.form_2calls_widget3.manager_hidden .manager, .form_2calls_widget3.manager_hidden .form_2calls_manager_text{ display:none;}
+.form_2calls_widget3 .form_2calls_manager_text{ margin: 92px 0 0 17px; }
+.form_2calls_ntime_label{ color: #000; font-size: 15px; left: 373px; line-height: 21px; position: absolute; top: 23px;}
+
+.form_2calls_ntime_b-hours{ background: url("../images/arrow.png") no-repeat scroll 44px 18px #fff; border: 1px solid #acacac; border-radius: 5px; box-sizing: border-box; height: 52px; left: 441px; overflow: hidden; position: absolute; top: 18px; width: 65px; }
+#hours{ width: 65px; line-height:50px; height: 52px; margin: 0; border: none; font-size: 23px; font-weight: 700; color: #000; padding: 0 0 2px 8px; background: transparent; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family:Arial, Helvetica, sans-serif;  }
+#hours option, #mins option { font-size: 18px;}
+.form_2calls_ntime_b-mins{ background: url("../images/arrow.png") no-repeat scroll 44px 18px #fff; border: 1px solid #acacac; border-radius: 5px; box-sizing: border-box; height: 52px; left: 521px; position: absolute; top: 18px; width: 65px;}
+.form_2calls_ntime_b-mins:after{ color: #000; content: ":"; font-size: 23px; font-weight: 700; left: -12px; position: absolute; top: 6px;}
+#mins{ width: 63px; line-height:50px; height: 52px; margin: 0; border: none; font-size: 23px; font-weight: 700; color: #000; padding: 0 0 2px 8px; background: transparent; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family:Arial, Helvetica, sans-serif;  }
+
+.form_2calls_ntime_doublebouble{
+    position: absolute;
+    top: 171px; left: 510px;
+    font-family: Arial, sans-serif !important;
+    font-size: 23px; font-weight: 700;
+    line-height: 49px; color: #000;
+}
+
+
+/* widget#4 */
+.form_2calls_widget4 .form_2calls_call_left,
+.form_2calls_widget4 .form_2calls_call_right{
+    display: none;
+}
+.form_2calls_widget4 .form_2calls_heading{ margin: 87px 0 0 54px;}
+.form_2calls_widget4 .form_2calls_desc{ }
+.form_2calls_widget4 .manager { margin: 13px 0 0 313px; }
+.form_2calls_widget4.manager_hidden .manager, .form_2calls_widget4.manager_hidden .form_2calls_manager_text { display:none; }
+.form_2calls_widget4 .form_2calls_manager_text{ margin: 16px 0 0 17px;}
+.form_2calls_appointed_time{ color: #000; font-size: 23px; left: 59px; position: absolute; top: 198px;}
+.form_2calls_appointed_time:after{ left: -45px; position: absolute; top: -39px; content:url(../images/flat_2calls_arrow.png);}
+.form_2calls_appointed_day{ color: #000; font-size: 12px; left: 130px; position: absolute; top: 202px;}
+
+
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+.form_2calls_md_show{
+	z-index:1;
+}
+.form_2calls_md_show .form_2calls_layout{
+	-webkit-transform: translateX(20%);
+	-moz-transform: translateX(20%);
+	-ms-transform: translateX(20%);
+	transform: translateX(20%);
+	opacity: 0;
+	-webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	-moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+.form_2calls_md_show_active{
+	z-index:2000000;
+}
+.form_2calls_md_show_active .form_2calls_layout{
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	-ms-transform: translateX(0px);
+	transform: translateX(0px);
+	opacity: 1;
+	-webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	-moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+.form_2calls_md_show_none .form_2calls_layout{
+	-webkit-transform: translateX(-20%);
+	-moz-transform: translateX(-20%);
+	-ms-transform: translateX(-20%);
+	transform: translateX(-20%);
+	opacity: 0;
+	-webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	-moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	z-index:1;
+}
+.form_2calls_not_call{
+	opacity: 0.1;
+}
+.form_2calls_not_call.form_2calls_not_call_show{
+    -webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	-ms-transform: translateX(0px);
+	transform: translateX(0px);
+	opacity: 1;
+	-webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	-moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+.form_2calls_widget4.form_2calls_manager_hidden .form_2calls_block { padding: 0 0 158px;}
+/* Switch offices select */
+
+.form_2calls_office .form_2calls_block{
+    height: 390px;
+}
+    .form_2calls_office .form_2calls_manager_img,
+    .form_2calls_office .form_2calls_timer,
+    .form_2calls_office .form_2calls_manager_text{
+        top: 283px;
+    }
+    .form_2calls_office .manager{
+        margin-top: 92px;
+    }
+    .form_2calls_office .form_2calls_manager_text{
+        margin-top: 107px;
+    }
+    .form_2calls_office .form_2calls_copy{
+        top: 385px;
+    }
+    .form_2calls_office .form_2calls_timer{
+        margin-top: 30px;
+    }
+    .form_2calls_office .form_2calls_manager_hidden .form_2calls_copy{
+        top: 305px;
+    }
+.form_2calls_office .form_2calls_manager_hidden .form_2calls_block{
+    height: 310px;
+}
+.form_2calls_office .form_2calls_manager_hidden .form_2calls_timer{
+    top: 220px; left: 360px;
+    margin-top: 0px;
+}
+.form_2calls_switch_office{
+    height: 30px; 
+    min-width: 210px;
+    max-width: 465px;
+    position: absolute;
+    left: 55px; top: 246px;
+    font-size: 15px;
+    display: none;
+}
+    .form_2calls_switch_select_wrapper{
+        float: left;
+        width: 180px;
+        height: 30px;
+        border: none;
+        box-sizing: border-box;
+        border: 1px #acacac solid;
+        background: #fff;
+        border-radius: 3px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+    .form_2calls_switch_select-button{
+        display: none;
+        height: 28px;
+        width: 20px;
+        background: #fff url("../images/flat_2calls_selector.png") no-repeat right 10px center;
+        position: absolute;	
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 50;
+    }
+    .form_2calls_switch_office_input{
+        border: none;
+        font-family: "Open Sans", sans-serif !important;
+        font-size: 15px;
+        width: 180px;
+        padding: 0 5px;
+        margin: 0;
+        height: 28px;
+        position: relative;
+        background: none;
+        z-index: 100;
+        cursor: pointer;
+    }
+        .form_2calls_switch_office_input:focus{
+            outline: none;
+        }
+    .form_2calls_switch_office_label{
+        width: 121px;
+        float: left;
+        line-height: 30px;
+    }
+
+.form_2calls_office .form_2calls_switch_office{
+    display: block;
+}
+.form_2calls_office .form_2calls_manager_hidden .form_2calls_panel1 .form_2calls_block{ padding-bottom:0px; }
+.form_2calls_office .form_2calls_manager_hidde.widget_04 .form_2calls_block{padding: 0px;}
+.form_2calls_office .form_2calls_manager_hidden.widget_04 .form_2calls_timer{top: 110px;}
+.timer {
+    height: 30px;
+    width: 120px;
+    /*outline: 1px solid violet;*/
+    bottom: 9px;
+    left: 56px;
+    position: absolute;
+    padding-left: 52px;
+    font-size: 20px;
+    padding-top: 10px;
+    color: #4f4f4f;
+    background: url("../images/flat_2calls_timer.png") no-repeat scroll 0px -22px rgba(0, 0, 0, 0);
+    -webkit-transition: all 0.15s;
+    -moz-transition: all 0.15s;
+    transition: all 0.15s;
+    display: none;
+}
+.timer:hover{ color:#f00; background: url("../images/flat_2calls_timer_hover_flat.png") no-repeat scroll 0px -22px rgba(0, 0, 0, 0);}
+
+/* for callback */
+.button_2calls_wrap {display:none;}
+    .i_form_button {
+        position: fixed;
+        background: url(../images/call-btn.png) no-repeat center center;
+        height: 120px;
+        width: 120px;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        z-index: 999;
+    }
+    .i_form_button:hover , .i_form_button:active {
+        background: url(../images/call-btn-hover.png) no-repeat center center;
+    }
+    .i_form_button , .i_form_button:hover , .i_form_button:active {
+        -webkit-transition-duration: 0.3s;
+		-moz-transition-duration: 0.3s;
+		-o-transition-duration: 0.3s;
+		transition-duration: 0.3s;
+    }
+    .i_form{
+          background-color: rgba(0, 0, 0, 0.57);
+          position: fixed;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          z-index: 99999999;
+    }
+	.form-wrapper {
+		width: 480px;
+		height: 218px;
+		margin: 0 auto;
+		background: url('../images/flat_block.png') repeat center center;
+		border: 1px solid #0077FF;
+		box-shadow: 0px 0px 20px rgb(0, 168, 255);
+		border-radius: 5px;
+		overflow: hidden;
+        margin-top: 200px;
+        left: 36%;
+	}
+ 	.form-wrapper form {
+		padding: 15px;
+		background: url('../images/call-logo.png') no-repeat center left;
+		background-size: auto 74%;
+  		height: 220px;
+	}
+    .form-wrapper form > div {
+		width: 330px;
+  		margin: 0 auto;
+  		margin-top: 15px;
+	}
+	.form-wrapper h3 {
+		clear: both;
+		font-size: 33px;
+		text-align: center;
+		font-family: "Open Sans", sans-serif !important;
+		font-weight: 100 !important;
+		color: #4f4f4f;
+		font-stretch: ultra-condensed;
+		margin: 0px;
+	}
+	.form-wrapper p {
+		color: #FD0000;
+  		text-shadow: 0px 1px 0px #9D9D9D;
+  		font-size: 14px;
+  		text-align: center;
+  		font-family: "Open Sans", sans-serif !important;
+  		margin: 8px 0 6px 0;
+	}
+	.form-wrapper input[type="text"]{
+		width: 240px;
+  		border-radius: 4px;
+  		border: 0px;
+  		padding: 8px 9px;
+  		font-size: 18px;
+  		outline: none !important;
+  		box-shadow: inset 0px 1px 6px silver;
+  		border: 1px solid silver;
+	}
+	.form-wrapper input[type="text"]:active , .form-wrapper input[type="text"]:focus {
+		border: 1px solid #00B2FF;
+	}
+	.form-wrapper input[type="text"] , .form-wrapper input[type="text"]:active , .form-wrapper input[type="text"]:focus {
+		-webkit-transition-duration: 0.2s;
+		-moz-transition-duration: 0.2s;
+		-o-transition-duration: 0.2s;
+		transition-duration: 0.2s;
+	}
+	.form-wrapper .phone_button {
+		padding: 9px 9px 9px 9px;
+	  	vertical-align: top;
+	  	border-radius: 4px;
+	  	border: 1px solid rgb(0, 129, 255);
+	  	background-color: #00B2FF;
+	  	font-size: 16px;
+	  	color: #4f4f4f;
+	  	cursor: pointer;
+	  	outline: none !important;
+	}
+    .form-wrapper #phonenumber + div {
+        float:left;
+        font-size:14px !important;
+    }
+	.form-wrapper .phone_button:active {
+  		box-shadow: inset 0px 3px 6px rgb(0, 116, 247);
+  		padding: 10px 9px 8px 9px;
+	}
+	.form-wrapper .phone_button , .form-wrapper .phone_button:active {
+		-webkit-transition-duration: 0.2s;
+		-moz-transition-duration: 0.2s;
+		-o-transition-duration: 0.2s;
+		transition-duration: 0.2s;
+	}
+	.form-wrapper .exit {
+		float: right;
+		border: 1px solid silver;
+		border-radius: 2px;
+		padding: 0 4px;
+		cursor: pointer;
+		color: #4f4f4f;
+        padding-bottom: 2px;
+	}
+	.form-wrapper .exit:hover {
+		color: #00B2FF;
+		border-color: #4f4f4f;
+	}
+	.form-wrapper .exit , .form-wrapper .exit:hover{
+		-webkit-transition-duration: 0.2s;
+		-moz-transition-duration: 0.2s;
+		-o-transition-duration: 0.2s;
+		transition-duration: 0.2s;
+	}
