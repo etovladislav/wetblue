@@ -124,7 +124,7 @@ public class AdminController {
     @RequestMapping(value = "/getCleanPlus", method = RequestMethod.GET)
     public Plus getCleanPlus() {
         Plus plus = new Plus();
-        plus.setDesc("asd");
+        plus.setDescription("asd");
         plusRepository.save(plus);
         return plus;
     }
@@ -176,7 +176,7 @@ public class AdminController {
     @RequestMapping(value = "/cleanReview/{id}", method = RequestMethod.GET)
     public Review getCleanReview(@PathVariable("id") Long id) {
         Review review = new Review();
-        review.setDesc("asdasd");
+        review.setDescription("asdasd");
         ReviewCategory reviewCategory = reviewCategoryRepository.findOne(id);
         reviewCategory.getReview().add(review);
         reviewCategoryRepository.save(reviewCategory);

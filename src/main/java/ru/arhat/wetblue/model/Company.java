@@ -1,9 +1,6 @@
 package ru.arhat.wetblue.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by etovladislav on 21.06.16.
@@ -17,7 +14,7 @@ public class Company {
 
     private String name;
 
-    private String desc;
+    private String description;
 
     private String phone;
 
@@ -25,7 +22,8 @@ public class Company {
 
     private String address;
 
-    private String group;
+    private String company;
+
 
     public Long getId() {
         return id;
@@ -43,12 +41,12 @@ public class Company {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPhone() {
@@ -75,11 +73,11 @@ public class Company {
         this.address = address;
     }
 
-    public String getGroup() {
-        return group;
+    public String getCompany() {
+        return company;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setCompany(String company) {
+        this.company = company;
     }
 }

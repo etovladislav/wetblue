@@ -16,8 +16,10 @@ public class Review {
     Long id;
 
     private String thumbImg;
+
     private String fullImg;
-    private String desc;
+
+    private String description;
 
     public Long getId() {
         return id;
@@ -43,11 +45,11 @@ public class Review {
         this.fullImg = fullImg;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

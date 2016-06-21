@@ -15,7 +15,8 @@ public class Plus {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
-    private String desc;
+    private String description;
+
     private String img;
 
     public Long getId() {
@@ -26,12 +27,12 @@ public class Plus {
         this.id = id;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getImg() {
