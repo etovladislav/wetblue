@@ -1,13 +1,11 @@
 adminModule.factory('productService', function (itemService, addWatchToObjectForSaveToServer) {
 
     var getAllProduct = function () {
-        var products = [
-            {
-                id: 0,
-                name: 'Продукция Wet Blue',
-                items: itemService.getItemByProductId(this.id)
-            }
-        ];
+        var products = [];
+        $http.get('/api/getAllCategory').success(function (data) {
+            console.log(data);
+            products = data;
+        });
 
         angular.forEach(products, function (obj) {
             addWatchToObjectForSaveToServer.add(obj, save);
