@@ -66,7 +66,7 @@
 
                     <a href="" class="head-email"
                        ng-replace
-                       data-replace="info.mail">{{info.mail}}</a>
+                       data-replace="info.email">{{info.email}}</a>
 
                 </div>
             </div>
@@ -112,7 +112,8 @@
     <div ng-add
          data-from="product"
          data-name="Добавить категорию"
-         data-item-service="productService.getNewProduct">
+         data-item-service="productService.getNewProduct"
+         data-save-func="productService.save">
 
         <div class="products" ng-repeat="block in product">
             <h2 class="pred-black"><span class="h2" id="producia"><span ng-replace
@@ -126,6 +127,7 @@
                          data-from="block.items"
                          data-name="Добавить товар"
                          data-item-service="itemService.getNewItem"
+                         data-save-func="itemService.save"
                          data-param="block.id">
 
                         <div class="wet-block inline-top" ng-repeat="item in block.items">
@@ -144,6 +146,7 @@
                                      data-from="item.params"
                                      data-name="Добавить Параметр"
                                      data-item-service="paramService.getNewParam"
+                                     data-save-func="paramService.save"
                                      data-param="item.id">
 
                                     <div ng-repeat="param in item.params">
@@ -180,6 +183,7 @@
                  data-from="plus"
                  data-name="Добавить плюс"
                  data-item-service="plusService.getNewPlus"
+                 data-save-func="plusService.save"
                  data-param="">
                 <ng-repeat ng-repeat="item in plus">
                     <ng-if ng-if="($index % 2) == 0">
@@ -217,6 +221,7 @@
     <div style="padding-bottom: 40px;" ng-add
          data-from="reviewCategory"
          data-name="Добавить категорию"
+         data-save-func="reviewCategoryService.save"
          data-item-service="reviewCategoryService.getNewCategory">
         <div class="reviews" ng-repeat="category in reviewCategory">
             <h2 class="pred-black" id="otzyvy"><span class="h2">
@@ -226,11 +231,12 @@
             <div class="thank-letters">
                 <div class="center"
                      ng-add
-                     data-from="category.items"
+                     data-from="category.review"
                      data-name="Добавить отзыв"
                      data-item-service="reviewService.getNewReview"
+                     data-save-func="reviewService.save"
                      data-param="category.id">
-                    <ng-repeat ng-repeat="item in category.items">
+                    <ng-repeat ng-repeat="item in category.review">
                         <div class="tank-block inline-top">
                             <img ng-replace
                                  data-replace="item.thumbImg"
@@ -301,6 +307,7 @@
                      data-from="country"
                      data-name="Добавить страну"
                      data-item-service="countryService.getNewCountry"
+                     data-save-func="countryService.save"
                      data-param="">
                     <div class="flag-block inline-top" ng-repeat="item in country">
                         <img ng-replace
@@ -354,35 +361,20 @@
         <div class="d-price">
             <div class="center">
                 <div class="dp-blocks inline-top">
-                    <div class="dp-block">
-                        <img src="img/flags/2.png" alt="" class="inline-middle"/>
+
+                    <div class="dp-block" ng-repeat="item in country">
+                        <img ng-replace
+                             data-replace="item.img"
+                             src="{{item.img}}" alt="" class="inline-middle"/>
                         <div class="dp-text inline-middle">
-                            <p><span>Турция (Измир)</span> — <br/>
-                                4 500 Долларов США за фуру;</p>
-                        </div>
-                    </div>
-                    <div class="dp-block">
-                        <img src="img/flags/1.png" alt="" class="inline-middle"/>
-                        <div class="dp-text inline-middle">
-                            <p><span>Индия(Ченнаи)</span> — <br/>
-                                5 000 Долларов США за 40 фут.<br/>
-                                контейнер с перегрузом в Бандар Аббасе;</p>
-                        </div>
-                    </div>
-                    <div class="dp-block">
-                        <img src="img/flags/4.png" alt="" class="inline-middle"/>
-                        <div class="dp-text inline-middle">
-                            <p><span>Китай Алашанкоу</span> — <br/>
-                                1500-2000 Долларов США <br/>
-                                за 40 фут. контейнер;</p>
-                        </div>
-                    </div>
-                    <div class="dp-block dp-block2">
-                        <img src="img/flags/5.png" alt="" class="inline-middle"/>
-                        <div class="dp-text inline-middle">
-                            <p><span>Пакистан</span> — <br/>
-                                4 500 Долларов США за <br/>
-                                40 фут. контейнер.</p>
+                            <p><span ng-replace
+                                     data-replace="item.name">{{item.name}}</span>
+                                <span
+                                        ng-replace
+                                        data-replace="item.city">({{item.city}})</span>
+                            </span> — <br/>
+                                <span ng-replace
+                                      data-replace="item.desc">{{item.desc}}</span></p>
                         </div>
                     </div>
                 </div>
@@ -406,7 +398,7 @@
                    data-replace="info.mail">mail:{{info.mail}}</p>
                 <p class="inline-top"
                    ng-replace
-                   data-replace="info.adres">Адрес: {{info.adres}}</p>
+                   data-replace="info.address">Адрес: {{info.address}}</p>
             </div>
         </div>
     </div>

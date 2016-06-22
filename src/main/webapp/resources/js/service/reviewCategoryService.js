@@ -1,41 +1,15 @@
-adminModule.factory('reviewCategoryService', function (addWatchToObjectForSaveToServer, reviewService) {
+adminModule.factory('reviewCategoryService', function ($http) {
 
-    var getAllCategory = function () {
-        var category = [
-            {
-                id: 0,
-                name: 'Благодарственные письма клиентов',
-                items: reviewService.getReviewByCategoryId(this.id)
-            }
-        ];
-
-        angular.forEach(category, function (obj) {
-            addWatchToObjectForSaveToServer.add(obj, save);
-        });
-
-        return category;
+    this.getAllCategory = function () {
+        return $http.get('/api/getAllReviewCategory');
     };
 
-    var getNewCategory = function () {
-
-        console.log("Ображение к серверу для создания новой категории для отзывов");
-        var category = {
-            id: 700,
-            name: 'Новая категория',
-            items: []
-        };
-
-        addWatchToObjectForSaveToServer.add(category, save);
-        return category;
+    this.getNewCategory = function () {
+        return $http.post('/api/getCleanReviewCategory');
     };
 
-    var save = function (category) {
-        console.log("сохраняю категориюю")
+    this.save = function (category) {
+        $http.post('/api/saveReviewCategory', category);
     };
-
-    this.save = save;
-    this.getAllCategory = getAllCategory;
-    this.getNewCategory = getNewCategory;
-
     return this;
 });

@@ -1,48 +1,16 @@
-adminModule.factory('productionService', function (addWatchToObjectForSaveToServer) {
+adminModule.factory('productionService', function ($http) {
 
-    var save = function (production) {
-        console.log("Сохраняю информацию о производстве")
+    this.save = function (production) {
+        $http.post('/api/saveProduction/', production);
     };
 
-
-    var getAllProduction = function () {
-
-        var production = [
-            {
-                id: 0,
-                name: 'Производственный цех',
-                img: 'img/p1.jpg'
-            },
-            {
-                id: 1,
-                name: 'Производственный цех',
-                img: 'img/p2.jpg'
-            }, {
-                id: 2,
-                name: 'Производственный цех',
-                img: 'img/p3.jpg'
-            }];
-
-        addWatchToObjectForSaveToServer.add(production, save);
-
-        return production;
+    this.getAllProduction = function () {
+        return $http.get('/api/getAllProduction/');
     };
 
-    var getNewProduction = function () {
-        console.log("Ображение к серверу для создания новой одукции");
-        var production = {
-            id: 0,
-            name: 'Производственный цех',
-            img: 'img/p1.jpg'
-        };
-
-        addWatchToObjectForSaveToServer.add(production, save);
-        return production;
+    this.getNewProduction = function () {
+        return $http.get('/api/getCleanProduction/');
     };
-
-    this.getNewProduction = getNewProduction;
-    this.save = save;
-    this.getAllProduction = getAllProduction;
 
     return this;
 });

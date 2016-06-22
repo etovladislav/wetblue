@@ -92,6 +92,7 @@ public class AdminController {
         Item item = new Item();
         item.setName("new");
         category.addItem(item);
+        itemRepository.save(item);
         categoryRepository.save(category);
         return item;
     }
@@ -107,6 +108,7 @@ public class AdminController {
         param.setName("New param");
         Item item = itemRepository.findOne(id);
         item.addParam(param);
+        paramRepository.save(param);
         itemRepository.save(item);
         return param;
     }
@@ -178,6 +180,7 @@ public class AdminController {
         Review review = new Review();
         review.setDescription("asdasd");
         ReviewCategory reviewCategory = reviewCategoryRepository.findOne(id);
+        reviewRepository.save(review);
         reviewCategory.getReview().add(review);
         reviewCategoryRepository.save(reviewCategory);
         return review;
@@ -187,8 +190,6 @@ public class AdminController {
     public void saveParam(@RequestBody Review review) {
         reviewRepository.save(review);
     }
-
-
 
 
     @RequestMapping(value = "/getAllDocument", method = RequestMethod.GET)
@@ -218,7 +219,8 @@ public class AdminController {
     @RequestMapping(value = "/getCleanCountry", method = RequestMethod.GET)
     public Country getCleanCountry() {
         Country country = new Country();
-        country.setDesc("");
+        country.setDescription("asdasdasdasdasd");
+        country.setCity("asdasdasdasdasd");
         countryRepository.save(country);
         return country;
     }

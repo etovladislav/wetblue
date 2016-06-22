@@ -1,77 +1,17 @@
-adminModule.factory('documentService', function (addWatchToObjectForSaveToServer) {
+adminModule.factory('documentService', function ($http) {
 
-    var getAllDocument = function () {
-        var document = [
-            {
-                id: 0,
-                name: 'Инвойс'
-            },
-            {
-                id: 1,
-                name: 'Упаковочный лист'
-            },
-            {
-                id: 2,
-                name: 'Транспортный документ'
-            },
-            {
-                id: 3,
-                name: 'Экспортная декларация'
-            },
-            {
-                id: 4,
-                name: 'Сертификат происхождения'
-            },
-            {
-                id: 5,
-                name: 'Международный'
-            },
-            {
-                id: 6,
-                name: 'ветеринарный сертификат'
-            },
-            {
-                id: 7,
-                name: 'Фитосанитарный сертификат'
-            },
-            {
-                id: 8,
-                name: 'Акт погрузки'
-            },
-            {
-                id: 9,
-                name: 'Акт по количеству и качеству товара'
-            }
-        ];
-
-        angular.forEach(document, function (obj) {
-            addWatchToObjectForSaveToServer.add(obj, save);
-        });
-
-        return document;
+    this.getAllDocument = function () {
+        return $http.get('/api/getAllDocument/');
     };
 
-    var save = function (document) {
-        console.log("сохраняем документ");
+    this.save = function (document) {
+        $http.post('/api/saveDocument/', document);
     };
 
-
-    var getNewDocument = function () {
-        console.log("Ображение к серверу для создания нового документа");
-        var document =
-        {
-            id: 4,
-            name: 'имя документа'
-        };
-
-        addWatchToObjectForSaveToServer.add(document, save);
-
-        return document;
+    this.getNewDocument = function () {
+        return $http.get('/api/getCleanDocument/');
     };
 
-    this.getAllDocument = getAllDocument;
-    this.save = save;
-    this.getNewDocument = getNewDocument;
 
     return this;
 });

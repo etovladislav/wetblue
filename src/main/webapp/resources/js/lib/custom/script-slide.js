@@ -44,39 +44,44 @@ $(document).ready(function () {
     elWrap.mouseout(function () {
         interval = setInterval(chengeLeft, autoChange);
     });
-    $(".anim-slider").animateSlider(
-        {
-            autoplay: true,
-            interval: 5000,
-            animations: {
-                0: 	//Slide No1
-                {
-                    '.img-slide': {
-                        show: "fadeIn",
-                        hide: "fadeOut",
-                        delayShow: "delay0-5s"
+
+    function animateSlide() {
+        $(".anim-slider").animateSlider(
+            {
+                autoplay: true,
+                interval: 5000,
+                animations: {
+                    0: 	//Slide No1
+                    {
+                        '.img-slide': {
+                            show: "fadeIn",
+                            hide: "fadeOut",
+                            delayShow: "delay0-5s"
+                        },
+                        '.slide-text': {
+                            show: "bounceIn",
+                            hide: "bounceOut",
+                            delayShow: "delay1s"
+                        }
                     },
-                    '.slide-text': {
-                        show: "bounceIn",
-                        hide: "bounceOut",
-                        delayShow: "delay1s"
-                    }
-                },
-                1: //Slide No2
-                {
-                    '.img-slide': {
-                        show: "fadeIn",
-                        hide: "fadeOut",
-                        delayShow: "delay0-5s"
-                    },
-                    '.slide-text': {
-                        show: "bounceIn",
-                        hide: "bounceOut",
-                        delayShow: "delay1s"
+                    1: //Slide No2
+                    {
+                        '.img-slide': {
+                            show: "fadeIn",
+                            hide: "fadeOut",
+                            delayShow: "delay0-5s"
+                        },
+                        '.slide-text': {
+                            show: "bounceIn",
+                            hide: "bounceOut",
+                            delayShow: "delay1s"
+                        }
                     }
                 }
             }
-        });
+        );
+    }
+
 });
 
 

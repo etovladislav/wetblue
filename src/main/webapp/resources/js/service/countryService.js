@@ -1,63 +1,17 @@
-adminModule.factory('countryService', function (addWatchToObjectForSaveToServer) {
+adminModule.factory('countryService', function ($http) {
 
-    var getAllCountry = function () {
-        var countries = [
-            {
-                id: 0,
-                name: 'Индия',
-                img: 'img/flags/1.png'
-            },
-            {
-                id: 1,
-                name: 'Туркция',
-                img: 'img/flags/2.png'
-            },
-            {
-                id: 2,
-                name: 'Италия',
-                img: 'img/flags/3.png'
-            },
-            {
-                id: 3,
-                name: 'Китай',
-                img: 'img/flags/4.png'
-            },
-            {
-                id: 4,
-                name: 'Пакистан',
-                img: 'img/flags/5.png'
-            }
-        ];
-
-        angular.forEach(countries, function (obj) {
-            addWatchToObjectForSaveToServer.add(obj, save);
-        });
-
-        return countries;
+    this.getAllCountry = function () {
+        return $http.get('/api/getAllCountry/');
     };
 
-    var save = function (country) {
-        console.log("сохраняем страну");
+    this.save = function (country) {
+        $http.post('/api/saveCountry/', country);
     };
 
 
-    var getNewCountry = function (id) {
-        console.log("Ображение к серверу для создания нового товара и ставлю на него слушателя");
-        var country =
-        {
-            id: 4,
-            name: 'Пакистан',
-            img: 'img/flags/5.png',
-        };
-
-        addWatchToObjectForSaveToServer.add(country, save);
-
-        return country;
+    this.getNewCountry = function () {
+        return $http.get('/api/getCleanCountry/');
     };
-
-    this.getAllCountry = getAllCountry;
-    this.save = save;
-    this.getNewCountry = getNewCountry;
 
     return this;
 });
