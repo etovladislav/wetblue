@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.arhat.wetblue.model.*;
 import ru.arhat.wetblue.repository.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,11 +48,6 @@ public class AdminController {
     @Autowired
     CountryRepository countryRepository;
 
-    @RequestMapping(value = "/saveInfo", method = RequestMethod.POST)
-    public void saveCompany(@RequestBody Company company) {
-        companyRepository.save(company);
-    }
-
     @RequestMapping(value = "/getInfo", method = RequestMethod.GET)
     public Company getCompany() {
         return companyRepository.findAll().get(0);
@@ -82,6 +78,7 @@ public class AdminController {
     public Category getCleanCategory() {
         Category category = new Category();
         category.setName("New category");
+        category.setItems(new ArrayList<>());
         categoryRepository.save(category);
         return category;
     }
@@ -92,6 +89,7 @@ public class AdminController {
         Item item = new Item();
         item.setName("new");
         category.addItem(item);
+        item.setParams(new ArrayList<>());
         itemRepository.save(item);
         categoryRepository.save(category);
         return item;
@@ -170,6 +168,7 @@ public class AdminController {
     public ReviewCategory getCleanReviewCategory() {
         ReviewCategory reviewCategory = new ReviewCategory();
         reviewCategory.setName("asdasd");
+        reviewCategory.setReview(new ArrayList<>());
         reviewCategoryRepository.save(reviewCategory);
         return reviewCategory;
     }

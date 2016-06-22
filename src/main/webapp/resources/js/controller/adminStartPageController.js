@@ -12,6 +12,9 @@ adminModule.controller('adminStartPageController', function AdminStartPageContro
                                                                                      documentService,
                                                                                      addWatchToObjectForSaveToServer) {
 
+
+
+
         infoService.getInfo().success(function (data) {
             $scope.info = data;
             addWatchToObjectForSaveToServer.add($scope.info, infoService.save);
