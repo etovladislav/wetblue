@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = "/index")
+
+    @RequestMapping(value = "/admin")
     public String getIndexPage() {
         return "index";
+    }
+
+    @RequestMapping(value = {"/login", "/"})
+    public String getLoginPage() {
+        return "login";
     }
 }
