@@ -8,5 +8,10 @@ adminModule.factory('reviewService', function ($http) {
         $http.post('/api/saveReview', rewiev);
     };
 
+
+    this.delete = function (review) {
+        $http.post('/api/deleteReview', review);
+    };
+
     return this;
 });

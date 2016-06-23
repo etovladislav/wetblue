@@ -1,7 +1,7 @@
 adminModule.factory('reviewCategoryService', function ($http) {
 
     this.getAllCategory = function () {
-        return $http.get('/api/getAllReviewCategory');
+        return $http.get('/getAllReviewCategory');
     };
 
     this.getNewCategory = function () {
@@ -11,5 +11,11 @@ adminModule.factory('reviewCategoryService', function ($http) {
     this.save = function (category) {
         $http.post('/api/saveReviewCategory', category);
     };
+
+
+    this.delete = function (reviewCategory) {
+        $http.post('/api/deleteReviewCategory', reviewCategory);
+    };
+
     return this;
 });

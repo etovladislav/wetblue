@@ -5,8 +5,9 @@ adminModule.factory('infoService', function ($http) {
     };
 
     this.getInfo = function () {
-        return $http.get('/api/getInfo');
+        return $http.get('/getInfo');
     };
+    
 
     return this;
 });

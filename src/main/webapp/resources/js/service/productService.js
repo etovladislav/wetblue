@@ -1,7 +1,7 @@
 adminModule.factory('productService', function ($http) {
 
     this.getAllProduct = function () {
-        return $http.get('/api/getAllCategory');
+        return $http.get('/getAllCategory');
     };
 
     this.getNewProduct = function () {
@@ -10,6 +10,11 @@ adminModule.factory('productService', function ($http) {
 
     this.save = function (product) {
         $http.post('/api/saveCategory', product);
+    };
+
+
+    this.delete = function (product) {
+        $http.post('/api/deleteCategory', product);
     };
 
     return this;

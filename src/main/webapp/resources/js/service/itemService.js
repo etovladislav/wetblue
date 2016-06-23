@@ -9,5 +9,10 @@ adminModule.factory('itemService', function ($http) {
         return $http.get('/api/getCleanItem/' + id);
     };
 
+
+    this.delete = function (item) {
+        $http.post('/api/deleteItem', item);
+    };
+
     return this;
 });

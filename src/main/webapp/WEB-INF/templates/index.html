@@ -115,9 +115,18 @@
          data-item-service="productService.getNewProduct"
          data-save-func="productService.save">
 
-        <div class="products" ng-repeat="block in product">
-            <h2 class="pred-black"><span class="h2" id="producia"><span ng-replace
-                                                                        data-replace="block.name">{{block.name}}</span></span>
+        <div class="products"
+             ng-repeat="block in product">
+            <h2 class="pred-black"><span class="h2" id="producia">
+                <p ng-delete
+                   data-from="product"
+                   data-number="$index"
+                   data-func-delete="productService.delete">
+
+                    <span ng-replace
+                          data-replace="block.name">{{block.name}}</span>
+                    </p>
+            </span>
             </h2>
             <div class="wetblue wetblue1">
                 <div class="center">
@@ -136,8 +145,12 @@
                                  ng-replace
                                  data-replace="item.img"/>
 
+                            <p ng-delete
+                               data-from="block.items"
+                               data-number="$index"
+                               data-func-delete="itemService.delete">
                             <h3 ng-replace
-                                data-replace="item.name">{{item.name}}</h3>
+                                data-replace="item.name">{{item.name}}</h3></p>
 
                             <div class="wet-text">
 
@@ -150,13 +163,18 @@
                                      data-param="item.id">
 
                                     <div ng-repeat="param in item.params">
+                                        <span ng-delete
+                                              data-from="item.params"
+                                              data-number="$index"
+                                              data-func-delete="paramService.delete">
                                         <p>
-                                            <span ng-replace
-                                                  data-replace="param.name">{{param.name}}</span>
+                                        <span ng-replace
+                                              data-replace="param.name">{{param.name}}</span>
                                             <span ng-replace
                                                   data-replace="param.value">{{param.value}}</span>
                                         <div class="dotted" style="clear: both"></div>
-                                        </p>
+                                            </p>
+                                        </span>
                                     </div>
                                 </div>
                                 <p class="w-price"
@@ -186,8 +204,14 @@
                  data-save-func="plusService.save"
                  data-param="">
                 <ng-repeat ng-repeat="item in plus">
+
                     <ng-if ng-if="($index % 2) == 0">
                         <div class="opyt-block ob-left">
+                            <span ng-delete
+                                 data-from="plus"
+                                 data-number="$index"
+                                 data-func-delete="plusService.delete">
+                            </span>
                             <p ng-replace
                                data-replace="item.description"
                                class="inline-middle">
@@ -210,6 +234,12 @@
                                class="inline-middle">
                                 {{item.description}}
                             </p>
+
+                    <span ng-delete
+                          data-from="plus"
+                          data-number="$index"
+                          data-func-delete="plusService.delete">
+                    </span>
                         </div>
                     </ng-if>
                 </ng-repeat>
@@ -225,8 +255,14 @@
          data-item-service="reviewCategoryService.getNewCategory">
         <div class="reviews" ng-repeat="category in reviewCategory">
             <h2 class="pred-black" id="otzyvy"><span class="h2">
+                <p ng-delete
+                   data-from="reviewCategory"
+                   data-number="$index"
+                   data-func-delete="reviewCategoryService.delete">
+
                     <span ng-replace
                           data-replace="category.name">{{category.name}}</span></span>
+                </p>
             </h2>
             <div class="thank-letters">
                 <div class="center"
@@ -238,6 +274,12 @@
                      data-param="category.id">
                     <ng-repeat ng-repeat="item in category.review">
                         <div class="tank-block inline-top">
+
+                            <span ng-delete
+                                  data-from="category.review"
+                                  data-number="$index"
+                                  data-func-delete="reviewService.delete">
+                    </span>
                             <img ng-replace
                                  data-replace="item.thumbImg"
                                  src="{{item.thumbImg}}" alt="" data-img="{{item.fullImg}}"/>
@@ -264,6 +306,11 @@
                 <ng-repeat ng-repeat="item in production">
                     <ng-if ng-if="($index % 2) == 0">
                         <div class="p-block p-block-left">
+                            <div ng-delete
+                                 data-from="production"
+                                 data-number="$index"
+                                 data-func-delete="productService.delete">
+                            </div>
                             <img class="pimg inline-middle"
                                  ng-replace
                                  data-replace="item.img"
@@ -272,11 +319,17 @@
                                 <img src="img/pr.png" alt=""/>
                                 <p ng-replace
                                    data-replace="item.name">{{item.name}}</p>
+
                             </div>
                         </div>
                     </ng-if>
                     <ng-if ng-if="($index % 2) == 1">
                         <div class="p-block p-block-right">
+                            <div ng-delete
+                                 data-from="category.review"
+                                 data-number="$index"
+                                 data-func-delete="reviewService.delete">
+                            </div>
                             <div class="pcontent inline-middle">
                                 <img src="img/pl.png" alt=""/>
                                 <p ng-replace
@@ -315,6 +368,12 @@
                              src="{{item.img}}" alt=""/>
                         <p ng-replace
                            data-replace="item.name">{{item.name}}</p>
+                        <div ng-delete
+                             data-from="country"
+                             data-number="$index"
+                             data-func-delete="countryService.delete">
+                        </div>
+
                     </div>
                 </div>
                 <h4>Отгрузочная документация прилагаемая к товару:</h4>
@@ -322,12 +381,20 @@
                      ng-add
                      data-from="document"
                      data-name="Добавить документ"
-                     data-item-service="documentService.getNewDocument">
+                     data-item-service="documentService.getNewDocument"
+                     data-save-func="documentService.save">
                     <div class="inline-top doc">
                         <ul>
                             <li ng-repeat="item in document">
+
+
                                 <div ng-replace data-replace="item.name">{{item.name}}
                                 </div>
+                                <span ng-delete
+                                      data-from="document"
+                                      data-number="$index"
+                                      data-func-delete="documentService.delete">
+                                </span>
                             </li>
                             <div style="clear: both;"></div>
                         </ul>
@@ -372,9 +439,9 @@
                                 <span
                                         ng-replace
                                         data-replace="item.city">({{item.city}})</span>
-                            </span> — <br/>
+                                </span> — <br/>
                                 <span ng-replace
-                                      data-replace="item.desc">{{item.desc}}</span></p>
+                                      data-replace="item.description">{{item.description}}</span></p>
                         </div>
                     </div>
                 </div>
@@ -392,10 +459,10 @@
             <div class="footer-blocks">
                 <p class="inline-top"
                    ng-replace
-                   data-replace="info.mail">тел.{{info.phone}}</p>
+                   data-replace="info.phone">тел.{{info.phone}}</p>
                 <p class="inline-top"
                    ng-replace
-                   data-replace="info.mail">mail:{{info.mail}}</p>
+                   data-replace="info.email">mail:{{info.email}}</p>
                 <p class="inline-top"
                    ng-replace
                    data-replace="info.address">Адрес: {{info.address}}</p>
@@ -435,6 +502,7 @@
 <script src="js/directive/ngReplace.js"></script>
 <script src="js/directive/ngPanel.js"></script>
 <script src="js/directive/ngAdd.js"></script>
+<script src="js/directive/ngDelete.js"></script>
 
 <script src="js/lib/jquery.js"></script>
 <script src="js/lib/modernizr.js"></script>

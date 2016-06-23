@@ -48,9 +48,9 @@ public class AdminController {
     @Autowired
     CountryRepository countryRepository;
 
-    @RequestMapping(value = "/getInfo", method = RequestMethod.GET)
-    public Company getCompany() {
-        return companyRepository.findAll().get(0);
+    @RequestMapping(value = "/saveInfo", method = RequestMethod.POST)
+    public void saveCompany(@RequestBody Company company) {
+        companyRepository.save(company);
     }
 
     @RequestMapping(value = "/saveSlider", method = RequestMethod.POST)
@@ -58,21 +58,10 @@ public class AdminController {
         sliderRepository.save(slider);
     }
 
-    @RequestMapping(value = "/getSliders", method = RequestMethod.GET)
-    public List<Slider> getAllSlider() {
-        return sliderRepository.findAll();
-    }
-
     @RequestMapping(value = "/saveCategory", method = RequestMethod.POST)
     public void saveCategory(@RequestBody Category category) {
         categoryRepository.save(category);
     }
-
-    @RequestMapping(value = "/getAllCategory", method = RequestMethod.GET)
-    public List<Category> getAllCategory() {
-        return categoryRepository.findAll();
-    }
-
 
     @RequestMapping(value = "/getCleanCategory", method = RequestMethod.POST)
     public Category getCleanCategory() {
@@ -85,46 +74,51 @@ public class AdminController {
 
     @RequestMapping(value = "/getCleanItem/{id}", method = RequestMethod.GET)
     public Item getCleanItem(@PathVariable("id") Long id) {
+
         Category category = categoryRepository.findOne(id);
+
         Item item = new Item();
-        item.setName("new");
-        category.addItem(item);
+        item.setName("Название товара");
+        item.setPrice("Цена");
+        item.setImg("/img/w1.jpg");
         item.setParams(new ArrayList<>());
-        itemRepository.save(item);
-        categoryRepository.save(category);
+        item.setCategory(category);
+        item = itemRepository.save(item);
         return item;
     }
 
     @RequestMapping(value = "/saveItem", method = RequestMethod.POST)
     public void saveItem(@RequestBody Item item) {
+        Item oldItem = itemRepository.findOne(item.getId());
+        item.setCategory(oldItem.getCategory());
         itemRepository.save(item);
     }
 
     @RequestMapping(value = "/cleanParam/{id}", method = RequestMethod.GET)
     public Param getCleanParam(@PathVariable("id") Long id) {
+
         Param param = new Param();
-        param.setName("New param");
+        param.setName("Парамет");
+        param.setValue("Значение");
         Item item = itemRepository.findOne(id);
-        item.addParam(param);
-        paramRepository.save(param);
-        itemRepository.save(item);
+        param.setItem(item);
+        param = paramRepository.save(param);
+
         return param;
     }
 
     @RequestMapping(value = "/saveParam", method = RequestMethod.POST)
     public void saveParam(@RequestBody Param param) {
+        Param oldParam = paramRepository.findOne(param.getId());
+        param.setItem(oldParam.getItem());
         paramRepository.save(param);
-    }
-
-    @RequestMapping(value = "/getAllPlus", method = RequestMethod.GET)
-    public List<Plus> getAllPlus() {
-        return plusRepository.findAll();
     }
 
     @RequestMapping(value = "/getCleanPlus", method = RequestMethod.GET)
     public Plus getCleanPlus() {
         Plus plus = new Plus();
-        plus.setDescription("asd");
+        plus.setDescription("Описание");
+        plus.setImg("/img/opyt/1.jpg");
         plusRepository.save(plus);
         return plus;
     }
@@ -134,15 +128,11 @@ public class AdminController {
         plusRepository.save(plus);
     }
 
-    @RequestMapping(value = "/getAllProduction", method = RequestMethod.GET)
-    public List<Production> getAllProduction() {
-        return productionRepository.findAll();
-    }
-
     @RequestMapping(value = "/getCleanProduction", method = RequestMethod.GET)
     public Production getCleanProduction() {
         Production production = new Production();
-        production.setName("sad");
+        production.setName("Описание поизводства");
+        production.setImg("/img/p2.jpg");
         productionRepository.save(production);
         return production;
     }
@@ -158,16 +148,11 @@ public class AdminController {
         reviewCategoryRepository.save(reviewCategory);
     }
 
-    @RequestMapping(value = "/getAllReviewCategory", method = RequestMethod.GET)
-    public List<ReviewCategory> getAllReviewCategory() {
-        return reviewCategoryRepository.findAll();
-    }
-
 
     @RequestMapping(value = "/getCleanReviewCategory", method = RequestMethod.POST)
     public ReviewCategory getCleanReviewCategory() {
         ReviewCategory reviewCategory = new ReviewCategory();
-        reviewCategory.setName("asdasd");
+        reviewCategory.setName("Категория отзывов");
         reviewCategory.setReview(new ArrayList<>());
         reviewCategoryRepository.save(reviewCategory);
         return reviewCategory;
@@ -177,7 +162,9 @@ public class AdminController {
     @RequestMapping(value = "/cleanReview/{id}", method = RequestMethod.GET)
     public Review getCleanReview(@PathVariable("id") Long id) {
         Review review = new Review();
-        review.setDescription("asdasd");
+        review.setDescription("Описание");
+        review.setThumbImg("/img/thank/2.jpg");
+        review.setFullImg("/img/thank2/3.jpg");
         ReviewCategory reviewCategory = reviewCategoryRepository.findOne(id);
         reviewRepository.save(review);
         reviewCategory.getReview().add(review);
@@ -191,15 +178,10 @@ public class AdminController {
     }
 
 
-    @RequestMapping(value = "/getAllDocument", method = RequestMethod.GET)
-    public List<Document> getAllDocument() {
-        return documentRepository.findAll();
-    }
-
     @RequestMapping(value = "/getCleanDocument", method = RequestMethod.GET)
     public Document getCleanDocument() {
         Document document = new Document();
-        document.setName("");
+        document.setName("Имя документа");
         documentRepository.save(document);
         return document;
     }
@@ -210,16 +192,13 @@ public class AdminController {
     }
 
 
-    @RequestMapping(value = "/getAllCountry", method = RequestMethod.GET)
-    public List<Country> getAllCountry() {
-        return countryRepository.findAll();
-    }
-
     @RequestMapping(value = "/getCleanCountry", method = RequestMethod.GET)
     public Country getCleanCountry() {
         Country country = new Country();
-        country.setDescription("asdasdasdasdasd");
-        country.setCity("asdasdasdasdasd");
+        country.setDescription("Опимание доставки");
+        country.setCity("Город дотавки");
+        country.setName("Страна");
+        country.setImg("/img/flags/3.png");
         countryRepository.save(country);
         return country;
     }
@@ -227,5 +206,54 @@ public class AdminController {
     @RequestMapping(value = "/saveCountry", method = RequestMethod.POST)
     public void saveCountry(@RequestBody Country country) {
         countryRepository.save(country);
+    }
+
+
+    @RequestMapping(value = "/deleteCategory", method = RequestMethod.POST)
+    public void deleteCatagory(@RequestBody Category category) {
+        categoryRepository.delete(category);
+    }
+
+    @RequestMapping(value = "/deleteItem", method = RequestMethod.POST)
+    public void deleteItem(@RequestBody Item item) {
+        itemRepository.deleteById(item.getId());
+    }
+
+    @RequestMapping(value = "/deleteParam", method = RequestMethod.POST)
+    public void deleteParam(@RequestBody Param param) {
+        paramRepository.delete(param);
+    }
+
+    @RequestMapping(value = "/deletePlus", method = RequestMethod.POST)
+    public void deletePlus(@RequestBody Plus plus) {
+        plusRepository.delete(plus);
+    }
+
+
+    @RequestMapping(value = "/deleteReviewCategory", method = RequestMethod.POST)
+    public void deleteCategory(@RequestBody ReviewCategory reviewCategory) {
+        reviewCategoryRepository.delete(reviewCategory);
+    }
+
+    @RequestMapping(value = "/deleteReview", method = RequestMethod.POST)
+    public void deleteReview(@RequestBody Review review) {
+        reviewRepository.delete(review);
+    }
+
+    @RequestMapping(value = "/deleteProduction", method = RequestMethod.POST)
+    public void deleteProduction(@RequestBody Production production) {
+        productionRepository.delete(production);
+    }
+
+
+    @RequestMapping(value = "/deleteCountry", method = RequestMethod.POST)
+    public void deleteCountry(@RequestBody Country country) {
+        countryRepository.delete(country);
+    }
+
+
+    @RequestMapping(value = "/deleteDocument", method = RequestMethod.POST)
+    public void deleteDocument(@RequestBody Document document) {
+        documentRepository.delete(document);
     }
 }

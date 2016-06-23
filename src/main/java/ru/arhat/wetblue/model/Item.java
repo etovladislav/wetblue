@@ -1,5 +1,7 @@
 package ru.arhat.wetblue.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -19,7 +21,12 @@ public class Item {
 
     private String price;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    @JsonIgnore
+    private Category category;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "item")
     private List<Param> params;
 
     public Long getId() {
@@ -64,5 +71,13 @@ public class Item {
 
     public void addParam(Param param) {
         params.add(param);
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

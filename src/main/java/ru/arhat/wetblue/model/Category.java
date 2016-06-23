@@ -15,7 +15,7 @@ public class Category {
 
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "category")
     private List<Item> items;
 
     public Long getId() {
@@ -45,4 +45,6 @@ public class Category {
     public void addItem(Item item) {
         items.add(item);
     }
+
+
 }

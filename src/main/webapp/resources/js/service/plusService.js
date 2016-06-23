@@ -1,7 +1,7 @@
 adminModule.factory('plusService', function ($http) {
 
     this.getAllPlus = function () {
-        return $http.get('/api/getAllPlus/');
+        return $http.get('/getAllPlus/');
     };
 
     this.getNewPlus = function () {
@@ -10,6 +10,11 @@ adminModule.factory('plusService', function ($http) {
 
     this.save = function (plus) {
         $http.post('/api/savePlus', plus);
+    };
+
+
+    this.delete = function (plus) {
+        $http.post('/api/deletePlus/',plus);
     };
 
     return this;

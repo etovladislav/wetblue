@@ -5,11 +5,16 @@ adminModule.factory('productionService', function ($http) {
     };
 
     this.getAllProduction = function () {
-        return $http.get('/api/getAllProduction/');
+        return $http.get('/getAllProduction/');
     };
 
     this.getNewProduction = function () {
         return $http.get('/api/getCleanProduction/');
+    };
+
+
+    this.delete = function (production) {
+        $http.post('/api/deleteProduction/', production);
     };
 
     return this;

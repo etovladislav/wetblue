@@ -1,9 +1,8 @@
 package ru.arhat.wetblue.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 /**
  * Created by etovladislav on 21.06.16.
@@ -14,9 +13,22 @@ public class Param {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "item_id", referencedColumnName = "id")
+    @JsonIgnore
+    private Item item;
+
     private String name;
 
     private String value;
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
 
     public Long getId() {
         return id;

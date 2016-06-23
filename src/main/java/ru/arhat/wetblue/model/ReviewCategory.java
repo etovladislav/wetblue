@@ -16,7 +16,7 @@ public class ReviewCategory {
 
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Review> review;
 
     public Long getId() {

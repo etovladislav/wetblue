@@ -1,7 +1,7 @@
 adminModule.factory('documentService', function ($http) {
 
     this.getAllDocument = function () {
-        return $http.get('/api/getAllDocument/');
+        return $http.get('/getAllDocument/');
     };
 
     this.save = function (document) {
@@ -12,6 +12,9 @@ adminModule.factory('documentService', function ($http) {
         return $http.get('/api/getCleanDocument/');
     };
 
-
+    this.delete = function (document) {
+        $http.post('/api/deleteDocument/', document);
+    };
+    
     return this;
 });

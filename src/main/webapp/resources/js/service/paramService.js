@@ -10,5 +10,9 @@ adminModule.factory('paramService', function ($http) {
     };
 
 
+    this.delete = function (param) {
+        $http.post('/api/deleteParam', param);
+    };
+
     return this;
 });
