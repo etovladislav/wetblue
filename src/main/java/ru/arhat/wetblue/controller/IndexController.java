@@ -1,15 +1,15 @@
 package ru.arhat.wetblue.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ru.arhat.wetblue.model.*;
 import ru.arhat.wetblue.repository.*;
+import ru.arhat.wetblue.util.Sender;
+import ru.arhat.wetblue.util.UserInfo;
 
 import java.util.List;
 
@@ -52,6 +52,13 @@ public class IndexController {
     @Autowired
     CountryRepository countryRepository;
 
+
+    @RequestMapping(value = "/sendMessage", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public void sendMessage(@RequestBody UserInfo userInfo) {
+        Sender sender = new Sender();
+        sender.send("Новая заявка wetblue.biz", "Имя " + userInfo.getName() + " \nНомер: " + userInfo.getPhone(), "pro.arhat@gmail.com");
+    }
 
     @RequestMapping(value = {"/admin", "/"})
     public String getIndexPage() {
