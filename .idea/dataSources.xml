@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1601347821">
+    <data-source source="LOCAL" name="PostgreSQL - wetblue@localhost" uuid="735527e7-59ba-497a-a0c8-572fd6456e2f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/wetblue</jdbc-url>
+    </data-source>
+  </component>
+</project>
