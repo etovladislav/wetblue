@@ -2,8 +2,10 @@ package ru.arhat.wetblue.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import ru.arhat.wetblue.model.*;
 import ru.arhat.wetblue.repository.*;
+import ru.arhat.wetblue.util.ImageUploadProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -253,5 +255,12 @@ public class AdminController {
     @RequestMapping(value = "/deleteDocument", method = RequestMethod.POST)
     public void deleteDocument(@RequestBody Document document) {
         documentRepository.delete(document);
+    }
+
+    @RequestMapping(value = "/saveImage", method = RequestMethod.POST)
+    public String saveImage(@RequestParam("Files") MultipartFile multipartFile) {
+        ImageUploadProvider imageUploadProvider = new ImageUploadProvider();
+        String pathToImage = imageUploadProvider.upload(multipartFile);
+        return pathToImage;
     }
 }
