@@ -27,12 +27,19 @@ adminModule.directive('ngReplace', function (userService, ngDialog) {
                                     $scope.options = {
                                         change: function (file) {
                                             ngDialog.close();
-                                            file.$upload('api/saveImage', $scope.file).success(function (data) {
-                                                $scope.replace = data;
-                                            });
+
+                                            var img = new FormData();
+                                            img.append('Files', $scope.file);
+                                            $http.post("/img/saveImage", img, {
+                                                    transformRequest: angular.identity,
+                                                    headers: {'Content-Type': undefined}
+                                                })
+                                                .success(function (data) {
+                                                    alert(data);
+                                                })
                                         }
                                     }
-                                }else{
+                                } else {
                                     $scope.edit = function (value) {
                                         $scope.replace = value;
                                     };
