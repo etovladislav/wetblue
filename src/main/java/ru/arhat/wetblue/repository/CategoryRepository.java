@@ -8,5 +8,5 @@ import ru.arhat.wetblue.model.Item;
  * Created by etovladislav on 21.06.16.
  */
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-    Category findByItem(Item item);
+
 }

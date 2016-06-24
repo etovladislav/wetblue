@@ -211,14 +211,13 @@ public class AdminController {
 
     @RequestMapping(value = "/deleteItem", method = RequestMethod.POST)
     public void deleteItem(@RequestBody Item item) {
-        Category category = categoryRepository.findByItem(item);
-        category.getItems().remove(item);
-        categoryRepository.save(category);
-        //itemRepository.delete(item);
+        itemRepository.removRelationshipByItemId(item.getId());
+        itemRepository.delete(item);
     }
 
     @RequestMapping(value = "/deleteParam", method = RequestMethod.POST)
     public void deleteParam(@RequestBody Param param) {
+        paramRepository.removRelationshipByParamId(param.getId());
         paramRepository.delete(param);
     }
 
