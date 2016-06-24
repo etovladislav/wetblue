@@ -27,7 +27,9 @@ adminModule.directive('ngReplace', function (userService, ngDialog) {
                                     $scope.options = {
                                         change: function (file) {
                                             ngDialog.close();
-                                            file.$upload('api/saveImage', $scope.file)
+                                            file.$upload('api/saveImage', $scope.file).success(function (data) {
+                                                $scope.replace = data;
+                                            });
                                         }
                                     }
                                 }else{
@@ -40,7 +42,7 @@ adminModule.directive('ngReplace', function (userService, ngDialog) {
                                     className: 'ngdialog-theme-default',
                                     scope: $scope
                                 });
-
+                                $scope.$apply();
                             }
                         );
                     }
