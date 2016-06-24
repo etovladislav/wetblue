@@ -258,7 +258,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/saveImage", method = RequestMethod.POST)
-    public String saveImage(@RequestParam("Files") MultipartFile multipartFile) {
+    public String saveImage(@RequestParam("img") MultipartFile multipartFile) {
         ImageUploadProvider imageUploadProvider = new ImageUploadProvider();
         String pathToImage = imageUploadProvider.upload(multipartFile);
         return pathToImage;

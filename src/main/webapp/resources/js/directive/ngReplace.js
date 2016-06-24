@@ -1,4 +1,4 @@
-adminModule.directive('ngReplace', function (userService, ngDialog) {
+adminModule.directive('ngReplace', function (userService, ngDialog, $http) {
     return {
         restrict: 'AE',
         scope: {
@@ -23,18 +23,18 @@ adminModule.directive('ngReplace', function (userService, ngDialog) {
                                 if (element[0].nodeName.toLowerCase() === 'img') {
 
                                     template = "template/editImg.html";
-                                 
-                                } else {
-                                    $scope.edit = function (value) {
-                                        $scope.replace = value;
-                                    };
+
                                 }
+                                $scope.edit = function (value) {
+                                    $scope.replace = value;
+                                    $scope.$apply();
+                                };
+
                                 ngDialog.open({
                                     template: template,
                                     className: 'ngdialog-theme-default',
                                     scope: $scope
                                 });
-                                $scope.$apply();
                             }
                         );
                     }

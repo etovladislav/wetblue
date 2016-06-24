@@ -1,6 +1,9 @@
 adminModule.directive('ngUpload', function (userService, ngDialog) {
     return {
         restrict: 'AE',
+        scope:{
+            editFunc:'='
+        },
         link: function ($scope, element, attrs) {
             var button = $('<input type="submit" value="отправить">');
             var input = $('<input type="file">');
@@ -12,13 +15,13 @@ adminModule.directive('ngUpload', function (userService, ngDialog) {
                 file.append('img', input.prop('files')[0]);
 
                 $.ajax({
-                    url: '/api/saveImg',
+                    url: '/api/saveImage',
                     data: file,
                     processData: false,
                     contentType: false,
                     type: 'POST',
                     success: function (data) {
-                        alert(data);
+                        $scope.editFunc(data);
                     }
                 });
             })
