@@ -53,11 +53,19 @@ public class IndexController {
     CountryRepository countryRepository;
 
 
-    @RequestMapping(value = "/sendMessage", method = RequestMethod.GET)
+    @RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public void sendMessage(@RequestBody UserInfo userInfo) {
         Sender sender = new Sender();
         sender.send("Новая заявка wetblue.biz", "Имя " + userInfo.getName() + " \nНомер: " + userInfo.getPhone(), "pro.arhat@gmail.com");
+    }
+
+    @RequestMapping(value = "/sendMessageItem", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
+    public void feedbackItem(@RequestBody UserInfoItem userInfoItem) {
+        Sender sender = new Sender();
+        sender.send("Новая заявка wetblue.biz", "Имя " + userInfoItem.getName() + " \nНомер: " + userInfoItem.getPhone() + " \n " +
+                " Товар: " + userInfoItem.getItem() + " \n Количество: " + userInfoItem.getNumber(), "pro.arhat@gmail.com");
     }
 
     @RequestMapping(value = {"/admin", "/"})
