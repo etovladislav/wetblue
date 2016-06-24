@@ -66,6 +66,7 @@ public class IndexController {
         Sender sender = new Sender();
         sender.send("Новая заявка wetblue.biz", "Имя " + userInfoItem.getName() + "\nНомер: " + userInfoItem.getPhone() + "\n" +
                 "Товар: " + userInfoItem.getItem() + "\nКоличество: " + userInfoItem.getNumber(), "pro.arhat@gmail.com");
+
     }
 
     @RequestMapping(value = {"/admin", "/"})
