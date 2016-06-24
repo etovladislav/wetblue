@@ -15,7 +15,7 @@ public class Category {
 
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "category")
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval=true, cascade={CascadeType.ALL})
     private List<Item> items;
 
     public Long getId() {

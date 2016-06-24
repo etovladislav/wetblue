@@ -21,12 +21,7 @@ public class Item {
 
     private String price;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
-    @JsonIgnore
-    private Category category;
-
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "item")
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval=true, cascade={CascadeType.ALL})
     private List<Param> params;
 
     public Long getId() {
@@ -73,11 +68,4 @@ public class Item {
         params.add(param);
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 }

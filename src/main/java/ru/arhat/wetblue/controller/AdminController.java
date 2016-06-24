@@ -74,23 +74,20 @@ public class AdminController {
 
     @RequestMapping(value = "/getCleanItem/{id}", method = RequestMethod.GET)
     public Item getCleanItem(@PathVariable("id") Long id) {
-
         Category category = categoryRepository.findOne(id);
-
         Item item = new Item();
         item.setName("Название товара");
         item.setPrice("Цена");
         item.setImg("/img/w1.jpg");
         item.setParams(new ArrayList<>());
-        item.setCategory(category);
         item = itemRepository.save(item);
+        category.getItems().add(item);
+        categoryRepository.save(category);
         return item;
     }
 
     @RequestMapping(value = "/saveItem", method = RequestMethod.POST)
     public void saveItem(@RequestBody Item item) {
-        Item oldItem = itemRepository.findOne(item.getId());
-        item.setCategory(oldItem.getCategory());
         itemRepository.save(item);
     }
 
@@ -101,16 +98,14 @@ public class AdminController {
         param.setName("Парамет");
         param.setValue("Значение");
         Item item = itemRepository.findOne(id);
-        param.setItem(item);
         param = paramRepository.save(param);
-
+        item.getParams().add(param);
+        itemRepository.save(item);
         return param;
     }
 
     @RequestMapping(value = "/saveParam", method = RequestMethod.POST)
     public void saveParam(@RequestBody Param param) {
-        Param oldParam = paramRepository.findOne(param.getId());
-        param.setItem(oldParam.getItem());
         paramRepository.save(param);
     }
 
@@ -216,7 +211,10 @@ public class AdminController {
 
     @RequestMapping(value = "/deleteItem", method = RequestMethod.POST)
     public void deleteItem(@RequestBody Item item) {
-        itemRepository.deleteById(item.getId());
+        Category category = categoryRepository.findByItem(item);
+        category.getItems().remove(item);
+        categoryRepository.save(category);
+        //itemRepository.delete(item);
     }
 
     @RequestMapping(value = "/deleteParam", method = RequestMethod.POST)
