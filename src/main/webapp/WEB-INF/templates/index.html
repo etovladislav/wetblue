@@ -208,9 +208,9 @@
                     <ng-if ng-if="($index % 2) == 0">
                         <div class="opyt-block ob-left">
                             <span ng-delete
-                                 data-from="plus"
-                                 data-number="$index"
-                                 data-func-delete="plusService.delete">
+                                  data-from="plus"
+                                  data-number="$index"
+                                  data-func-delete="plusService.delete">
                             </span>
                             <p ng-replace
                                data-replace="item.description"
@@ -473,42 +473,263 @@
 
 </div>
 
-
 <ng-panel></ng-panel>
 
 
-<script src="js/lib/angular.js"></script>
-<script src="js/lib/directive/ngDialog.min.js"></script>
+<div class="pop-menu">
+    <div class="x-menu"></div>
+    <div class="right-menu">
+        <div class="help"></div>
+        <ul class="r-menu inline-middle">
+            <li><a href="#producia">Продукция</a></li>
+            <li><a href="#preimuschestva">приемущества</a></li>
+            <li><a href="#otzyvy">отзывы</a></li>
+            <li><a href="#proizvodstvo">производство</a></li>
+            <li><a href="#dostavka">доставка</a></li>
+            <li><a href="#stoimost">стоимость</a></li>
+        </ul>
+        <div class="phone-a-mail">
+            810998 90 328 2007<br/>
+            <span>zakaz@wetblue.biz</span>
+        </div>
+    </div>
+</div>
+
+<div class="sendwich"></div>
 
 
-<script src="js/module/adminModule.js"></script>
+<div class="second-menu">
+    <a class="totopp" href="#top"></a>
+    <a class="active" href="#producia"></a>
+    <a href="#preimuschestva"></a>
+    <a href="#otzyvy"></a>
+    <a href="#proizvodstvo"></a>
+    <a href="#dostavka"></a>
+    <a href="#stoimost"></a>
+</div>
 
-<script src="js/controller/adminStartPageController.js"></script>
 
-<script src="js/util/addWatchToObjectForSaveToServer.js"></script>
+<a class="tobottom" href="#bottom"></a>
 
-<script src="js/service/InfoService.js"></script>
-<script src="js/service/sliderService.js"></script>
-<script src="js/service/productService.js"></script>
-<script src="js/service/paramService.js"></script>
-<script src="js/service/itemService.js"></script>
-<script src="js/service/plusService.js"></script>
-<script src="js/service/reviewService.js"></script>
-<script src="js/service/reviewCategoryService.js"></script>
-<script src="js/service/productionService.js"></script>
-<script src="js/service/countryService.js"></script>
-<script src="js/service/documentService.js"></script>
-<script src="js/service/userService.js"></script>
+<div class="pop-order"><span class="inline-middle">Оставить заявку</span><span class="help"></span></div>
 
-<script src="js/directive/ngReplace.js"></script>
-<script src="js/directive/ngPanel.js"></script>
-<script src="js/directive/ngAdd.js"></script>
-<script src="js/directive/ngDelete.js"></script>
-<script src="js/directive/ngUpload.js"></script>
 
-<script src="js/lib/jquery.js"></script>
-<script src="js/lib/modernizr.js"></script>
-<script src="js/lib/jquery.animateSlider.js"></script>
-<script src="js/lib/custom/script-slide.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+
+<script>
+
+    /*открытие и закрытие меню*/
+    $('.sendwich').click(function () {
+        $('.pop-menu').show(500);
+    });
+
+    $('.r-menu').find('li').find('a').click(function () {
+        $('.pop-menu').hide(500);
+    });
+
+    $('.x-menu').click(function () {
+        $('.pop-menu').hide(500);
+    });
+
+    /*viewportChecker*/
+    $(document).ready(function () {
+        $('.products').viewportChecker({
+            callbackFunction: function () {
+                $('.second-menu').show();
+                $(".second-menu a").removeClass('active');
+                $(".second-menu a:eq(1)").addClass('active');
+                $('.tobottom').hide();
+            },
+            repeat: true
+        });
+        $('.preimuschestva').viewportChecker({
+            callbackFunction: function () {
+                $('.second-menu').show();
+                $(".second-menu a").removeClass('active');
+                $(".second-menu a:eq(2)").addClass('active');
+                $('.tobottom').hide();
+            },
+            repeat: true
+        });
+        $('.reviews').viewportChecker({
+            callbackFunction: function () {
+                $('.second-menu').show();
+                $(".second-menu a").removeClass('active');
+                $(".second-menu a:eq(3)").addClass('active');
+                $('.tobottom').hide();
+            },
+            repeat: true
+        });
+        $('.sertificaty').viewportChecker({
+            callbackFunction: function () {
+                $('.second-menu').show();
+                $(".second-menu a").removeClass('active');
+                $(".second-menu a:eq(4)").addClass('active');
+                $('.tobottom').hide();
+            },
+            repeat: true
+        });
+        $('.proizvodstvo').viewportChecker({
+            callbackFunction: function () {
+                $('.second-menu').show();
+                $(".second-menu a").removeClass('active');
+                $(".second-menu a:eq(5)").addClass('active');
+                $('.tobottom').hide();
+            },
+            repeat: true
+        });
+        $('.dostavka1').viewportChecker({
+            callbackFunction: function () {
+                $('.second-menu').show();
+                $(".second-menu a").removeClass('active');
+                $(".second-menu a:eq(6)").addClass('active');
+                $('.tobottom').hide();
+            },
+            repeat: true
+        });
+        $('.stoimost').viewportChecker({
+            callbackFunction: function () {
+                $('.second-menu').show();
+                $(".second-menu a").removeClass('active');
+                $(".second-menu a:eq(7)").addClass('active');
+                $('.tobottom').hide();
+            },
+            repeat: true
+        });
+        $('#slider').viewportChecker({
+            callbackFunction: function () {
+                $('.second-menu').hide();
+                $('.tobottom').show();
+            },
+            repeat: true
+        });
+    });
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('a[href*=#]').bind("click", function (e) {
+            var anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(anchor.attr('href')).offset().top
+            }, 1000);
+            e.preventDefault();
+        });
+        return false;
+    });
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter33453373 = new Ya.Metrika({
+                    id: 33453373,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true,
+                    trackHash: true
+                });
+            } catch (e) {
+            }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/33453373" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-64294868-4', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TNZFPQ"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start': new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-TNZFPQ');</script>
+
+
+<script src="/js/lib/angular.js"></script>
+<script src="/js/lib/directive/ngDialog.min.js"></script>
+
+
+<script src="/js/module/adminModule.js"></script>
+
+<script src="/js/controller/adminStartPageController.js"></script>
+
+<script src="/js/util/addWatchToObjectForSaveToServer.js"></script>
+
+<script src="/js/service/InfoService.js"></script>
+<script src="/js/service/sliderService.js"></script>
+<script src="/js/service/productService.js"></script>
+<script src="/js/service/paramService.js"></script>
+<script src="/js/service/itemService.js"></script>
+<script src="/js/service/plusService.js"></script>
+<script src="/js/service/reviewService.js"></script>
+<script src="/js/service/reviewCategoryService.js"></script>
+<script src="/js/service/productionService.js"></script>
+<script src="/js/service/countryService.js"></script>
+<script src="/js/service/documentService.js"></script>
+<script src="/js/service/userService.js"></script>
+
+<script src="/js/directive/ngReplace.js"></script>
+<script src="/js/directive/ngPanel.js"></script>
+<script src="/js/directive/ngAdd.js"></script>
+<script src="/js/directive/ngDelete.js"></script>
+<script src="/js/directive/ngUpload.js"></script>
+
+
+<script src="/js/lib/modernizr.js"></script>
+<script src="/js/lib/jquery.animateSlider.js"></script>
+<script src="/js/lib/jquery.maskedinput.min.js"></script>
+<script src="/js/lib/jquery.viewportchecker.min.js"></script>
+<script src="/js/lib/custom/script-slide.js"></script>
+
 </body>
 </html>

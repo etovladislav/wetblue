@@ -45,7 +45,6 @@ $(document).ready(function () {
         interval = setInterval(chengeLeft, autoChange);
     });
 
-    function animateSlide() {
         $(".anim-slider").animateSlider(
             {
                 autoplay: true,
@@ -80,8 +79,7 @@ $(document).ready(function () {
                 }
             }
         );
-    }
-
+    
 });
 
 

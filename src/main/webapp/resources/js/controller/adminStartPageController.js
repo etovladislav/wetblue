@@ -13,18 +13,25 @@ adminModule.controller('adminStartPageController', function AdminStartPageContro
                                                                                      addWatchToObjectForSaveToServer) {
 
 
-
-
         infoService.getInfo().success(function (data) {
             $scope.info = data;
             addWatchToObjectForSaveToServer.add($scope.info, infoService.save);
         });
 
-        //toDO
-        slideService.getAllSlide().success(function (data) {
-            $scope.slideList = data;
-            addWatchToObjectForSaveToServer.add($scope.slideList, slideService.save);
-        });
+
+        $scope.slideList = [
+            {
+                id: 0,
+                img: 'img/slider/1.jpg',
+                description: 'Средний размер шкур 11 футов'
+            },
+            {
+                id: 1,
+                img: 'img/slider/2.jpg',
+                description: ' Шкуры получены из специальной породы овец «Джардар» '
+            }
+        ];
+
 
         productService.getAllProduct().success(function (data) {
             $scope.product = data;
