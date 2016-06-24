@@ -234,6 +234,7 @@ public class AdminController {
 
     @RequestMapping(value = "/deleteReview", method = RequestMethod.POST)
     public void deleteReview(@RequestBody Review review) {
+        reviewRepository.removRelationshipByReviewId(review.getId());
         reviewRepository.delete(review);
     }
 
