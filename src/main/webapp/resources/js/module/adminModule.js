@@ -1,1 +1,1 @@
-var adminModule = angular.module('adminModule', ['ngDialog','oi.file']);
+var adminModule = angular.module('adminModule', ['ngDialog']);

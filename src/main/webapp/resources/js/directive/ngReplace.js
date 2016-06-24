@@ -23,31 +23,7 @@ adminModule.directive('ngReplace', function (userService, ngDialog) {
                                 if (element[0].nodeName.toLowerCase() === 'img') {
 
                                     template = "template/editImg.html";
-                                    var formdata = new FormData();
-
-                                    $scope.getTheFiles = function ($files) {
-                                        angular.forEach($files, function (value, key) {
-                                            formdata.append(key, value);
-                                        });
-                                    };
-
-                                    // NOW UPLOAD THE FILES.
-                                    $scope.uploadFiles = function () {
-
-                                        var request = {
-                                            method: 'POST',
-                                            url: '/api/saveImage/',
-                                            data: formdata,
-                                            headers: {
-                                                'Content-Type': undefined
-                                            }
-                                        };
-                                        // SEND THE FILES.
-                                        $http(request)
-                                            .success(function (data) {
-                                                alert(data);
-                                            });
-                                    };
+                                 
                                 } else {
                                     $scope.edit = function (value) {
                                         $scope.replace = value;
