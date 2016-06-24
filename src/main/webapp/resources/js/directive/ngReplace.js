@@ -23,22 +23,31 @@ adminModule.directive('ngReplace', function (userService, ngDialog) {
                                 if (element[0].nodeName.toLowerCase() === 'img') {
 
                                     template = "template/editImg.html";
-                                    $scope.file = {};
-                                    $scope.options = {
-                                        change: function (file) {
-                                            ngDialog.close();
+                                    var formdata = new FormData();
 
-                                            var img = new FormData();
-                                            img.append('Files', $scope.file);
-                                            $http.post("/img/saveImage", img, {
-                                                    transformRequest: angular.identity,
-                                                    headers: {'Content-Type': undefined}
-                                                })
-                                                .success(function (data) {
-                                                    alert(data);
-                                                })
-                                        }
-                                    }
+                                    $scope.getTheFiles = function ($files) {
+                                        angular.forEach($files, function (value, key) {
+                                            formdata.append(key, value);
+                                        });
+                                    };
+
+                                    // NOW UPLOAD THE FILES.
+                                    $scope.uploadFiles = function () {
+
+                                        var request = {
+                                            method: 'POST',
+                                            url: '/api/saveImage/',
+                                            data: formdata,
+                                            headers: {
+                                                'Content-Type': undefined
+                                            }
+                                        };
+                                        // SEND THE FILES.
+                                        $http(request)
+                                            .success(function (data) {
+                                                alert(data);
+                                            });
+                                    };
                                 } else {
                                     $scope.edit = function (value) {
                                         $scope.replace = value;

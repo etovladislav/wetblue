@@ -1,7 +1,4 @@
-<input type="file" oi-file="options">
+<input type="file" id="file1" name="file" multiple
+       ng-files="getTheFiles($files)" />
 
-<ul oi-file="options">
-    <li ng-repeat="item in items">
-        <img ng-src="{{item.thumb}}">
-    </li>
-</ul>
+<input type="button" ng-click="uploadFiles()" value="Upload" />
