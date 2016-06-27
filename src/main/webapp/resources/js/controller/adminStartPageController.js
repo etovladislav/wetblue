@@ -10,7 +10,8 @@ adminModule.controller('adminStartPageController', function AdminStartPageContro
                                                                                      productionService,
                                                                                      countryService,
                                                                                      documentService,
-                                                                                     addWatchToObjectForSaveToServer) {
+                                                                                     addWatchToObjectForSaveToServer,
+                                                                                     ngDialog) {
 
 
         infoService.getInfo().success(function (data) {
@@ -108,6 +109,15 @@ adminModule.controller('adminStartPageController', function AdminStartPageContro
         $scope.productionService = productionService;
         $scope.countryService = countryService;
         $scope.documentService = documentService;
+
+
+        $scope.openModalCallBack = function () {
+            ngDialog.open({
+                template: '/template/callBack.html',
+                className: 'ngdialog-theme-default',
+                scope: $scope
+            });
+        };
 
     }
 )
